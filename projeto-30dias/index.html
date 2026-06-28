@@ -1,0 +1,2669 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Método dos 30 Dias Sem Desculpas — Angola | Começa a Poupar Hoje</title>
+  <meta name="description" content="Se o teu salário desaparece todos os meses e nunca consegues poupar, este pode ser o ponto de viragem da tua vida financeira. Método criado para Angola. 2.500 AOA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       DESIGN SYSTEM — PREMIUM TOKENS
+    ═══════════════════════════════════════════ */
+    :root {
+      --dark:    #050E09;
+      --dark2:   #0A1A10;
+      --dark3:   #101F15;
+      --dark4:   #162618;
+      --green:   #34D87A;
+      --green2:  #22C55E;
+      --green3:  #16A34A;
+      --gold:    #F5C542;
+      --gold2:   #EAA520;
+      --red:     #EF4444;
+      --red2:    #FF6B6B;
+      --cta:     #22C55E;
+      --cta-glow: rgba(34, 197, 94, .55);
+      --glight:  #F0FDF4;
+      --gmid:    #DCFCE7;
+      --text:    #1A1A18;
+      --muted:   #6B7280;
+      --white:   #FFFFFF;
+      --bg:      #F7F8F4;
+      --border:  #E2E5DB;
+      --r:       20px;
+      --rsm:     12px;
+      --shadow:  0 1px 3px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
+      --shadowL: 0 4px 12px rgba(0,0,0,.04), 0 20px 56px rgba(0,0,0,.1);
+      --shadowXL:0 8px 24px rgba(0,0,0,.06), 0 32px 80px rgba(0,0,0,.14);
+      --glass:   rgba(255,255,255,.06);
+      --glass-b: rgba(255,255,255,.1);
+      --transition: cubic-bezier(.4, 0, .2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Grain overlay for cinematic look */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap  { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .sec   { padding: 100px 0; position: relative; }
+    .sec--dark    { background: var(--dark); }
+    .sec--dark2   { background: var(--dark2); }
+    .sec--dark3   { background: var(--dark3); }
+    .sec--light   { background: var(--glight); }
+    .sec--white   { background: var(--white); }
+
+    /* Subtle section dividers */
+    .sec--dark::before, .sec--dark2::before, .sec--dark3::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(80%, 500px); height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(46,204,113,.2), transparent);
+    }
+
+    /* ── TYPE ── */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--green); background: rgba(46,204,113,.08);
+      border: 1px solid rgba(46,204,113,.15);
+      padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .eyebrow--gold { color: var(--gold); background: rgba(240,180,41,.08); border-color: rgba(240,180,41,.15); }
+    .eyebrow--red  { color: #FF6B6B; background: rgba(231,76,60,.08); border-color: rgba(231,76,60,.15); }
+    .eyebrow--light { color: var(--dark3); background: rgba(15,35,24,.05); border-color: rgba(15,35,24,.1); }
+
+    h1.hero-hl {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(34px, 8.5vw, 62px);
+      color: #fff; line-height: 1.05; margin-bottom: 28px;
+      text-wrap: pretty;
+      letter-spacing: -.02em;
+    }
+    h1.hero-hl em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--green), #4ADE80);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2.sec-h {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 6vw, 46px);
+      line-height: 1.1; text-wrap: pretty;
+      letter-spacing: -.01em;
+    }
+    h2.sec-h--white { color: #fff; }
+    .sec-sub { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.75; text-wrap: pretty; }
+    .sec-sub--white { color: rgba(255,255,255,.55); }
+    .sh { margin-bottom: 48px; }
+    .lead { font-size: 17px; line-height: 1.85; color: rgba(255,255,255,.7); text-wrap: pretty; }
+    .lead--dark { color: var(--text); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--green2), var(--green3));
+      color: #fff; font-family: inherit;
+      font-size: 17px; font-weight: 800; padding: 22px 40px; border-radius: 16px;
+      border: none; cursor: pointer; text-decoration: none; width: 100%;
+      transition: all .3s var(--transition);
+      box-shadow: 0 4px 16px var(--cta-glow), inset 0 1px 0 rgba(255,255,255,.2);
+      letter-spacing: .01em;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15), transparent 50%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--cta-glow), 0 16px 48px rgba(34,197,94,.3), inset 0 1px 0 rgba(255,255,255,.2);
+    }
+    .btn:hover::before { opacity: 1; }
+    .btn:active { transform: translateY(-1px); }
+
+    .btn--ghost {
+      background: transparent;
+      border: 2px solid rgba(34,197,94,.5);
+      color: var(--green2);
+      box-shadow: none;
+    }
+    .btn--ghost:hover {
+      background: linear-gradient(135deg, var(--green2), var(--green3));
+      color: #fff; border-color: transparent;
+      box-shadow: 0 8px 32px var(--cta-glow);
+    }
+
+    .btn-pulse { animation: glow-pulse 2.5s ease-in-out infinite; }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 4px 16px var(--cta-glow), inset 0 1px 0 rgba(255,255,255,.2); }
+      50%  { box-shadow: 0 4px 32px rgba(34,197,94,.7), 0 0 60px rgba(34,197,94,.3), inset 0 1px 0 rgba(255,255,255,.2); }
+    }
+
+    .btn-meta {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; flex-wrap: wrap; margin-top: 16px;
+      font-size: 12px; font-weight: 600;
+    }
+    .btn-meta span { display: flex; align-items: center; gap: 5px; }
+    .btn-meta--light { color: rgba(255,255,255,.4); }
+    .btn-meta--dark  { color: var(--muted); }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce {
+      background: linear-gradient(90deg, #7f1d1d, #b91c1c, #991b1b, #b91c1c, #7f1d1d);
+      background-size: 300% 100%;
+      animation: shimmer-bg 4s ease infinite;
+      padding: 10px 16px; text-align: center;
+      font-size: 13px; font-weight: 700; color: #fff;
+      letter-spacing: .02em; position: relative; z-index: 201;
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .announce a { color: #fca5a5; text-decoration: underline; text-underline-offset: 2px; font-weight: 800; }
+    .announce-sep { opacity: .35; }
+    .announce-cd {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(0,0,0,.25); border-radius: 6px; padding: 2px 10px;
+      font-family: 'DM Serif Display', serif; font-size: 15px; letter-spacing: .04em;
+    }
+    @keyframes shimmer-bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(5,14,9,.85);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid rgba(46,204,113,.08);
+    }
+    .nav-inner {
+      max-width: 720px; margin: 0 auto; padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .nav-logo { font-size: 14px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .nav-logo small { display: block; font-size: 10px; font-weight: 500; color: rgba(255,255,255,.3); letter-spacing: .08em; margin-top: 2px; }
+    .nav-pill {
+      background: linear-gradient(135deg, var(--green2), var(--green3));
+      color: #fff; font-size: 13px; font-weight: 800;
+      padding: 11px 24px; border-radius: 12px; text-decoration: none; white-space: nowrap;
+      transition: all .25s var(--transition);
+      box-shadow: 0 2px 12px rgba(34,197,94,.3);
+    }
+    .nav-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(34,197,94,.45); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+    /* Animated gradient orbs */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 100% 50% at 50% -10%, rgba(34,197,94,.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 85% 90%, rgba(34,197,94,.08) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 10% 70%, rgba(245,197,66,.05) 0%, transparent 55%);
+    }
+    /* Canvas for particles sits as hero background */
+    #hero-particles {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Mouse spotlight overlay */
+    #hero-spotlight {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+    .hero:hover #hero-spotlight { opacity: 1; }
+
+    /* Video-ready container (for Higgsfield assets) */
+    .hero-video-bg {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden;
+    }
+    .hero-video-bg video {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .25;
+    }
+
+    .hero .wrap { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(240,180,41,.08);
+      border: 1px solid rgba(240,180,41,.18);
+      backdrop-filter: blur(12px);
+      border-radius: 100px; padding: 7px 18px; margin-bottom: 32px;
+      font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .06em;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 4.2vw, 20px);
+      color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 44px; text-wrap: pretty;
+    }
+    .hero-sub strong { color: var(--green); }
+
+    /* ── TRUST STRIP ── */
+    .trust {
+      background: var(--dark2);
+      border-top: 1px solid rgba(46,204,113,.06);
+      border-bottom: 1px solid rgba(46,204,113,.06);
+      padding: 18px 0;
+    }
+    .trust-inner {
+      max-width: 720px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
+    }
+    .ti { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.45); }
+    .ti svg { flex-shrink: 0; }
+
+    /* ── PAIN SECTION ── */
+    .pain-intro {
+      font-size: 17px; line-height: 1.85; color: var(--text); margin-bottom: 24px; text-wrap: pretty;
+    }
+    .pain-intro strong { color: var(--dark); }
+
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      border-radius: var(--r); padding: 22px 26px;
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+      transition: all .35s var(--transition);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .pain-card:hover {
+      transform: translateX(6px) translateY(-2px);
+      box-shadow: var(--shadowL);
+      border-left-color: #DC2626;
+    }
+    .pain-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .pain-card p { font-size: 15px; line-height: 1.7; color: var(--text); font-weight: 500; }
+    .pain-card p em { font-style: italic; color: #888; display: block; font-size: 13px; margin-top: 6px; }
+
+    /* ── AGITATION BOX ── */
+    .agit-box {
+      background: linear-gradient(145deg, #1A0808 0%, #120F0F 50%, #0D1510 100%);
+      border: 1px solid rgba(231,76,60,.15);
+      border-radius: var(--r); padding: 36px;
+      margin: 36px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .agit-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(231,76,60,.4), transparent);
+    }
+    .agit-box h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 5vw, 30px);
+      color: #fff; line-height: 1.2; margin-bottom: 18px;
+    }
+    .agit-box h3 em { color: var(--red2); font-style: italic; }
+    .agit-box p { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.8; }
+    .agit-box p + p { margin-top: 14px; }
+
+    /* ── STORY SECTION ── */
+    .story-box {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 40px 34px;
+      box-shadow: var(--shadowL); position: relative;
+      overflow: hidden;
+    }
+    .story-box::before {
+      content: '"'; position: absolute; top: -15px; left: 22px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 160px; color: rgba(46,204,113,.06); line-height: 1;
+      pointer-events: none;
+    }
+    .story-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(240,180,41,.08); border: 1px solid rgba(240,180,41,.15);
+      border-radius: 100px; padding: 5px 16px; margin-bottom: 22px;
+      font-size: 11px; font-weight: 700; color: var(--gold);
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .story-box h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 5vw, 30px);
+      color: var(--dark); line-height: 1.2; margin-bottom: 22px;
+    }
+    .story-body { font-size: 15px; line-height: 1.9; color: #3D3D3D; text-wrap: pretty; }
+    .story-body p + p { margin-top: 16px; }
+    .story-body strong { color: var(--dark); font-weight: 700; }
+    .story-body em { font-style: italic; color: #555; }
+
+    .story-impact {
+      background: linear-gradient(135deg, var(--glight), #E8F8EE);
+      border: 1px solid rgba(46,204,113,.15);
+      border-radius: var(--rsm); padding: 22px 26px; margin: 22px 0;
+    }
+    .story-impact p { font-size: 15px; font-weight: 600; color: var(--dark); line-height: 1.65; }
+    .story-impact p span { color: var(--green3); }
+    .story-lesson {
+      border-top: 2px solid var(--border); margin-top: 28px; padding-top: 28px;
+    }
+    .story-lesson p { font-size: 16px; font-weight: 700; color: var(--dark); line-height: 1.65; }
+    .story-lesson p em { color: var(--green3); font-style: italic; }
+
+    /* ── MECHANISM / SOLUTION ── */
+    .flow-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-b);
+      border-radius: var(--r); padding: 28px;
+      margin: 22px 0;
+      backdrop-filter: blur(8px);
+    }
+    .flow-lbl { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; }
+    .flow-steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .fs {
+      font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 10px;
+      background: rgba(255,255,255,.06); color: rgba(255,255,255,.55);
+      transition: all .25s;
+    }
+    .fs--bad  { background: rgba(231,76,60,.12); color: rgba(255,110,110,.9); border: 1px solid rgba(231,76,60,.18); }
+    .fs--good { background: rgba(46,204,113,.15); color: var(--green); border: 1px solid rgba(46,204,113,.25); }
+    .fa { color: rgba(255,255,255,.18); font-size: 15px; }
+
+    .checks { list-style: none; margin-top: 32px; }
+    .checks li {
+      display: flex; align-items: flex-start; gap: 16px; padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      font-size: 15px; color: rgba(255,255,255,.78); line-height: 1.6;
+    }
+    .checks li:last-child { border-bottom: none; }
+    .checks .ic { color: var(--green); font-size: 18px; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
+
+    .mechanism-highlight {
+      background: linear-gradient(135deg, rgba(46,204,113,.08), rgba(46,204,113,.04));
+      border: 1px solid rgba(46,204,113,.15);
+      border-radius: var(--r); padding: 32px; margin: 32px 0; text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mechanism-highlight::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(46,204,113,.1), transparent 70%);
+      pointer-events: none;
+    }
+    .mechanism-highlight p {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 5vw, 30px);
+      color: #fff; line-height: 1.4;
+      position: relative; z-index: 1;
+    }
+    .mechanism-highlight p em { color: var(--green); font-style: italic; }
+
+    /* ── BENEFIT CARDS ── */
+    .benefit {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
+      padding: 28px; margin-bottom: 16px; box-shadow: var(--shadow);
+      display: grid; grid-template-columns: 54px 1fr; gap: 20px; align-items: start;
+      transition: all .4s var(--transition);
+      transform-style: preserve-3d;
+    }
+    .benefit:hover {
+      transform: translateY(-4px) rotateX(1deg);
+      box-shadow: var(--shadowXL);
+      border-color: rgba(46,204,113,.2);
+    }
+    .benefit-icon {
+      width: 54px; height: 54px; border-radius: 16px;
+      background: linear-gradient(145deg, var(--gmid), #BBF7D0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(34,197,94,.12);
+    }
+    .benefit h3 { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 7px; }
+    .benefit p  { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .benefit-result {
+      display: inline-block; margin-top: 10px;
+      font-size: 11px; font-weight: 700; color: var(--green3);
+      background: rgba(46,204,113,.08); border-radius: 8px; padding: 4px 12px;
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .stats {
+      display: flex; justify-content: center; gap: 48px;
+      padding: 32px 0; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      margin-bottom: 48px;
+    }
+    .stat-num {
+      font-family: 'DM Serif Display', serif; font-size: 44px;
+      background: linear-gradient(135deg, var(--green), #4ADE80);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .stat-lbl { font-size: 11px; color: rgba(255,255,255,.32); margin-top: 6px; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+
+    /* Testimonial Carousel */
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--r);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform .55s var(--transition);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      padding: 0 2px;
+    }
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 8px;
+      margin-top: 20px;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: none; cursor: pointer;
+      transition: all .3s;
+    }
+    .carousel-dot.active {
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(34,197,94,.4);
+      width: 24px; border-radius: 4px;
+    }
+
+    .tcard {
+      background: var(--glass); border: 1px solid var(--glass-b);
+      border-radius: var(--r); padding: 28px;
+      backdrop-filter: blur(12px);
+      transition: border-color .3s;
+    }
+    .tcard:hover { border-color: rgba(46,204,113,.25); }
+    .stars { color: #F59E0B; font-size: 14px; letter-spacing: 3px; margin-bottom: 16px; }
+    .tcard blockquote { font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.8; font-style: italic; margin-bottom: 20px; }
+    .tauthor { display: flex; align-items: center; gap: 14px; }
+    .tavatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(145deg, var(--green), var(--green3));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 16px; color: #fff; flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(34,197,94,.25);
+    }
+    .tname { font-size: 14px; font-weight: 700; color: #fff; }
+    .trole { font-size: 11px; color: rgba(255,255,255,.32); margin-top: 3px; }
+
+    .prints-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0;
+    }
+    .print-img {
+      width: 100%; border-radius: var(--r);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadowL); transition: all .4s var(--transition); object-fit: cover;
+    }
+    .print-img:hover { transform: scale(1.03); border-color: rgba(46,204,113,.3); }
+
+    /* ── SAVINGS CALCULATOR ── */
+    .calc-box {
+      background: linear-gradient(145deg, var(--dark2), var(--dark3));
+      border: 1px solid rgba(46,204,113,.12);
+      border-radius: var(--r); padding: 36px;
+      margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .calc-box::before {
+      content: '';
+      position: absolute; top: -50%; right: -30%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(34,197,94,.08), transparent 70%);
+      pointer-events: none;
+    }
+    .calc-box h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px; color: #fff; margin-bottom: 8px;
+    }
+    .calc-box .calc-sub {
+      font-size: 14px; color: rgba(255,255,255,.4); margin-bottom: 28px;
+    }
+    .calc-input-group { margin-bottom: 20px; position: relative; }
+    .calc-label {
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,.5);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; display: block;
+    }
+    .calc-input {
+      width: 100%; padding: 16px 20px; padding-right: 60px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 20px; font-weight: 700;
+      outline: none;
+      transition: all .3s;
+    }
+    .calc-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(34,197,94,.15);
+    }
+    .calc-suffix {
+      position: absolute; right: 20px; bottom: 16px;
+      font-size: 14px; font-weight: 600; color: rgba(255,255,255,.3);
+    }
+    .calc-slider {
+      width: 100%; height: 6px; border-radius: 3px;
+      -webkit-appearance: none; appearance: none;
+      background: linear-gradient(90deg, var(--green2) 0%, rgba(255,255,255,.1) 0%);
+      outline: none; margin-top: 8px;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green2);
+      box-shadow: 0 2px 8px rgba(34,197,94,.4);
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .calc-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+    .calc-percent-val { font-size: 13px; font-weight: 700; color: var(--green); margin-top: 8px; text-align: right; }
+
+    .calc-results {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 28px;
+    }
+    .calc-result {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 20px; text-align: center;
+    }
+    .calc-result-lbl { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    .calc-result-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px; color: var(--green); line-height: 1;
+    }
+    .calc-result-sub { font-size: 11px; color: rgba(255,255,255,.25); margin-top: 6px; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+    .step {
+      display: grid; grid-template-columns: 60px 1fr; gap: 22px;
+      align-items: flex-start; padding: 30px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 60px; height: 60px; border-radius: 18px; flex-shrink: 0;
+      background: linear-gradient(145deg, rgba(46,204,113,.15), rgba(46,204,113,.08));
+      border: 1px solid rgba(46,204,113,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--green);
+      box-shadow: 0 4px 16px rgba(34,197,94,.1);
+    }
+    .step-body h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .step-body p  { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; }
+    .step-tag {
+      display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700;
+      color: var(--gold); background: rgba(240,180,41,.08);
+      border: 1px solid rgba(240,180,41,.15); border-radius: 8px; padding: 4px 12px;
+    }
+
+    /* ── OFFER BOX ── */
+    .offer-box {
+      background: var(--white); border-radius: var(--r); padding: 40px;
+      box-shadow: var(--shadowXL); border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .offer-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--gold), var(--green));
+    }
+    .offer-title { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--dark); margin-bottom: 28px; }
+    .offer-row {
+      display: flex; align-items: flex-start; gap: 18px; padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+    .offer-row:last-of-type { border-bottom: none; }
+    .ocheck {
+      width: 32px; height: 32px; border-radius: 10px;
+      background: linear-gradient(145deg, var(--gmid), #BBF7D0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: var(--dark); flex-shrink: 0; margin-top: 2px;
+      box-shadow: 0 2px 8px rgba(34,197,94,.12);
+    }
+    .offer-row h4 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
+    .offer-row p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .offer-row .val {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      color: var(--green3); margin-top: 6px;
+      background: rgba(46,204,113,.06); border-radius: 8px; padding: 3px 10px;
+    }
+    .offer-bonus { border-left: 3px solid var(--gold) !important; padding-left: 16px !important; }
+    .bonus-tag {
+      display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--gold); background: rgba(240,180,41,.08);
+      border-radius: 6px; padding: 3px 10px; margin-bottom: 5px;
+    }
+    .offer-divider { border: none; border-top: 2px dashed var(--border); margin: 20px 0; }
+    .offer-total-row {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 16px; margin-top: 24px;
+    }
+    .orig { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-top: 3px; }
+    .price-big { font-family: 'DM Serif Display', serif; font-size: 56px; color: var(--dark); line-height: 1; }
+    .price-aoa { font-size: 20px; color: var(--muted); }
+    .pay-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+    .ptag {
+      font-size: 12px; font-weight: 600; padding: 8px 14px;
+      border-radius: 10px; border: 1px solid var(--border);
+      color: var(--muted); background: var(--bg);
+    }
+    .saving-badge {
+      background: linear-gradient(135deg, var(--green2), var(--green3));
+      color: #fff; border-radius: 10px; padding: 10px 18px;
+      font-size: 13px; font-weight: 700; display: inline-block; margin-top: 8px;
+      box-shadow: 0 4px 16px rgba(34,197,94,.25);
+    }
+
+    /* ── URGENCY ── */
+    .ubox {
+      background: linear-gradient(155deg, var(--dark) 0%, var(--dark3) 60%, var(--dark2) 100%);
+      border-radius: var(--r); padding: 48px 32px; text-align: center;
+      border: 1px solid rgba(46,204,113,.1);
+      position: relative; overflow: hidden;
+    }
+    .ubox::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(34,197,94,.08), transparent 70%);
+      pointer-events: none;
+    }
+    .ubox h3 { font-family: 'DM Serif Display', serif; font-size: 30px; color: #fff; margin-bottom: 10px; position: relative; }
+    .ubox .usub { font-size: 15px; color: rgba(255,255,255,.42); margin-bottom: 36px; position: relative; }
+
+    .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; position: relative; }
+    .cdu { text-align: center; min-width: 72px; }
+    .cdn {
+      font-family: 'DM Serif Display', serif; font-size: 52px;
+      background: linear-gradient(135deg, var(--green), #4ADE80);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1; font-variant-numeric: tabular-nums;
+      background-color: rgba(255,255,255,.03);
+      -webkit-text-fill-color: transparent;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px; padding: 12px 6px; display: block;
+    }
+    .cdl { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-top: 8px; }
+    .cdsep { font-size: 40px; color: rgba(255,255,255,.12); line-height: 1; padding-top: 16px; align-self: flex-start; }
+    .price-row { font-size: 16px; color: rgba(255,255,255,.5); margin-bottom: 10px; position: relative; }
+    .price-row s { color: rgba(255,255,255,.2); }
+    .price-row strong { color: var(--green); font-size: 30px; }
+    .urgency-note { font-size: 13px; color: rgba(255,255,255,.28); margin-top: 14px; font-style: italic; position: relative; }
+
+    /* ── GUARANTEE ── */
+    .gbox {
+      border: 2px solid rgba(34,197,94,.3); border-radius: var(--r); padding: 48px 36px;
+      text-align: center; background: var(--white);
+      box-shadow: 0 0 0 10px rgba(34,197,94,.04), var(--shadowL);
+      position: relative; overflow: hidden;
+    }
+    .gbox::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at center, rgba(34,197,94,.03), transparent 60%);
+      pointer-events: none;
+    }
+    .gseal {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(145deg, var(--dark), var(--dark3));
+      border: 3px solid var(--green2); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; font-size: 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2), 0 0 0 6px rgba(34,197,94,.1);
+    }
+    .gbox h3 { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--dark); margin-bottom: 16px; position: relative; }
+    .gbox p  { font-size: 15px; color: var(--muted); line-height: 1.85; max-width: 460px; margin: 0 auto; position: relative; }
+    .gbox-foot { margin-top: 24px; font-size: 13px; font-weight: 700; color: var(--green3); position: relative; }
+
+    /* ── OBJECTIONS ── */
+    .obj {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
+      padding: 28px; margin-bottom: 14px; box-shadow: var(--shadow);
+      transition: all .3s var(--transition);
+    }
+    .obj:hover { border-color: rgba(46,204,113,.2); transform: translateY(-2px); box-shadow: var(--shadowL); }
+    .obj-q { display: flex; align-items: flex-start; gap: 14px; font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 14px; }
+    .obj-icon {
+      min-width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(145deg, var(--dark), var(--dark3)); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; margin-top: 1px; flex-shrink: 0; font-weight: 800;
+    }
+    .obj-a { font-size: 14px; color: var(--muted); line-height: 1.85; }
+
+    /* ── FAQ ── */
+    .faq { border: 1px solid var(--border); border-radius: var(--rsm); margin-bottom: 10px; background: var(--white); overflow: hidden; transition: all .3s; }
+    .faq:hover { border-color: rgba(46,204,113,.15); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; cursor: pointer; font-size: 14px; font-weight: 600;
+      color: var(--dark); gap: 14px; user-select: none; transition: all .2s;
+    }
+    .faq-q:hover { background: rgba(240,253,244,.6); }
+    .faq-ic {
+      width: 28px; height: 28px; border-radius: 8px; background: var(--gmid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0; transition: all .35s var(--transition); color: var(--dark);
+    }
+    .faq.open .faq-ic { transform: rotate(45deg); background: var(--green2); color: #fff; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .faq.open .faq-a { max-height: 400px; }
+    .faq-ai { padding: 0 24px 24px; font-size: 13px; color: var(--muted); line-height: 1.85; }
+    .faq-ai a { color: var(--green2); font-weight: 600; }
+
+    /* ── TWO PATHS ── */
+    .paths-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 36px;
+    }
+    .path-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 36px;
+      box-shadow: var(--shadow);
+      transition: all .4s var(--transition);
+    }
+    .path-card:hover { transform: translateY(-4px); box-shadow: var(--shadowL); }
+    .path-card--bad { border-top: 4px solid var(--red); }
+    .path-card--good { border-top: 4px solid var(--green2); box-shadow: var(--shadowL); }
+    .path-card--good:hover { box-shadow: var(--shadowXL); }
+    .path-card h3 { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 18px; }
+    .path-card p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+    .path-card p + p { margin-top: 14px; }
+
+    /* ── CTA GRID ── */
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 36px 0; }
+    .sc {
+      background: var(--glass); border: 1px solid var(--glass-b);
+      border-radius: var(--r); padding: 24px;
+      transition: all .3s var(--transition);
+      backdrop-filter: blur(8px);
+    }
+    .sc:hover { border-color: rgba(46,204,113,.25); transform: translateY(-3px); }
+    .sc-name { font-size: 11px; font-weight: 700; color: var(--green); margin-bottom: 8px; letter-spacing: .04em; }
+    .sc-num  { font-family: 'DM Serif Display', serif; font-size: 32px; color: #fff; line-height: 1; }
+    .sc-det  { font-size: 12px; color: rgba(255,255,255,.3); margin-top: 6px; line-height: 1.5; }
+
+    /* ── PS / CLOSING ── */
+    .ps-block { background: var(--dark2); border-top: 1px solid rgba(255,255,255,.05); padding: 64px 0; }
+    .ps-block p { font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.65); text-wrap: pretty; }
+    .ps-block p + p { margin-top: 20px; }
+
+    .closing-quote {
+      background: linear-gradient(135deg, rgba(46,204,113,.06), rgba(46,204,113,.03));
+      border: 1px solid rgba(46,204,113,.12);
+      border-radius: var(--r); padding: 36px; margin: 36px 0; text-align: center;
+    }
+    .closing-quote p {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 5vw, 30px);
+      color: #fff; line-height: 1.45;
+    }
+    .closing-quote p em { color: var(--green); font-style: italic; }
+
+    /* ── FOOTER ── */
+    footer { background: #020704; padding: 40px 0; text-align: center; }
+    footer p { font-size: 12px; color: rgba(255,255,255,.2); line-height: 2.2; }
+    footer a { color: rgba(255,255,255,.35); text-decoration: underline; text-underline-offset: 2px; }
+    footer strong { color: rgba(255,255,255,.35); }
+
+    /* ── WA FLOAT ── */
+    .wa {
+      position: fixed; bottom: 26px; right: 26px; z-index: 999;
+      width: 60px; height: 60px; border-radius: 18px; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,.35), 0 8px 32px rgba(37,211,102,.2);
+      text-decoration: none;
+      transition: all .3s var(--transition);
+    }
+    .wa:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+    .wa-ping {
+      position: absolute; top: -3px; right: -3px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--red); border: 2px solid var(--dark);
+      animation: ping 2s ease-in-out infinite;
+    }
+    @keyframes ping {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: .6; }
+    }
+
+    /* ── SALES TOAST ── */
+    .sales-toast {
+      position: fixed; bottom: 26px; left: 26px; z-index: 1000;
+      background: var(--white);
+      border-left: 4px solid var(--green2);
+      border-radius: 16px; padding: 16px 20px; box-shadow: var(--shadowXL);
+      display: flex; align-items: center; gap: 14px;
+      transform: translateY(160%); opacity: 0;
+      transition: transform 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+      max-width: 320px;
+    }
+    .sales-toast.show { transform: translateY(0); opacity: 1; }
+    .st-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(145deg, var(--gmid), #BBF7D0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0; color: var(--dark);
+    }
+    .st-text { font-size: 13px; color: var(--text); line-height: 1.45; }
+    .st-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--dark); }
+    .st-time { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal-el {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s var(--transition), transform .65s var(--transition);
+    }
+    .reveal-el.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .reveal-el:nth-child(2) { transition-delay: .08s; }
+    .reveal-el:nth-child(3) { transition-delay: .16s; }
+    .reveal-el:nth-child(4) { transition-delay: .24s; }
+    .reveal-el:nth-child(5) { transition-delay: .32s; }
+    .reveal-el:nth-child(6) { transition-delay: .40s; }
+    .reveal-el:nth-child(7) { transition-delay: .48s; }
+
+    /* ── HERO ANIMATIONS ── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero .wrap > * {
+      animation: heroFadeUp .7s var(--transition) both;
+    }
+    .hero .wrap > *:nth-child(2) { animation-delay: .1s; }
+    .hero .wrap > *:nth-child(3) { animation-delay: .2s; }
+    .hero .wrap > *:nth-child(4) { animation-delay: .3s; }
+    .hero .wrap > *:nth-child(5) { animation-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .sec { padding: 72px 0; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .stats { gap: 24px; }
+      .stat-num { font-size: 34px; }
+      h1.hero-hl { font-size: 30px; }
+      .hero { min-height: auto; padding: 60px 0 80px; }
+      .price-big { font-size: 44px; }
+      .offer-box { padding: 28px 20px; }
+      .story-box { padding: 30px 22px; }
+      .gbox { padding: 36px 24px; }
+      .countdown { gap: 6px; }
+      .cdn { font-size: 40px; }
+      .cdsep { font-size: 32px; }
+      .prints-grid { grid-template-columns: 1fr; }
+      .calc-results { grid-template-columns: 1fr; }
+      .calc-box { padding: 28px 22px; }
+      .paths-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal-el { opacity: 1; transform: none; }
+    }
+
+    /* ── SCROLL PROGRESS BAR ── */
+    .progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 10000;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--green2), #4ADE80, var(--gold));
+      box-shadow: 0 0 12px rgba(34,197,94,.7);
+      pointer-events: none;
+      transition: width .08s linear;
+    }
+
+    /* ── MOBILE STICKY BOTTOM CTA ── */
+    .mobile-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 997;
+      background: rgba(5,14,9,.96);
+      border-top: 1px solid rgba(46,204,113,.18);
+      padding: 12px 16px 14px;
+      backdrop-filter: blur(20px);
+      transform: translateY(100%);
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+    }
+    .mobile-cta.show { transform: translateY(0); }
+    .mobile-cta a {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--green2), var(--green3));
+      color: #fff; font-family: inherit; font-size: 15px; font-weight: 800;
+      padding: 16px; border-radius: 14px; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(34,197,94,.45);
+      animation: glow-pulse 2.5s ease-in-out infinite;
+    }
+    .mobile-cta-meta {
+      text-align: center; font-size: 11px; color: rgba(255,255,255,.28);
+      margin-top: 7px; font-weight: 600; letter-spacing: .04em;
+    }
+    @media (min-width: 769px) { .mobile-cta { display: none !important; } }
+
+    /* ── WAVE DIVIDERS ── */
+    .wave-div { display: block; line-height: 0; overflow: hidden; }
+    .wave-div svg { display: block; width: 100%; }
+
+    /* ── HERO LIVE COUNTER ── */
+    .hero-live {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(46,204,113,.07); border: 1px solid rgba(46,204,113,.14);
+      border-radius: 12px; padding: 10px 20px; margin-bottom: 28px;
+      font-size: 14px; font-weight: 600; color: rgba(255,255,255,.6);
+    }
+    .hero-live strong { color: #4ADE80; font-size: 20px; font-family: 'DM Serif Display', serif; margin: 0 2px; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; display: inline-block; animation: ping 1.5s ease-in-out infinite; flex-shrink: 0; }
+
+    /* ── PAIN CARD INTERACTIVE ── */
+    .pain-card { cursor: pointer; user-select: none; }
+    .pain-card.checked {
+      border-left-color: var(--green2);
+      background: #F0FDF4;
+    }
+    .pain-card.checked .pain-icon { position: relative; }
+    .pain-card-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px; font-size: 13px; font-weight: 800;
+      color: transparent; transition: all .25s var(--transition);
+    }
+    .pain-card.checked .pain-card-check {
+      background: var(--green2); border-color: var(--green2); color: #fff;
+    }
+    .pain-counter-wrap { margin-top: 28px; }
+    .pain-counter-bar {
+      height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin: 10px 0 6px;
+    }
+    .pain-counter-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--green2), #4ADE80);
+      border-radius: 3px; transition: width .4s var(--transition);
+      box-shadow: 0 0 8px rgba(34,197,94,.4);
+    }
+    .pain-counter-text { font-size: 13px; font-weight: 700; color: var(--muted); }
+    .pain-counter-text span { color: var(--green3); }
+
+    /* ── HIGHLIGHT UNDERLINE ANIMATION ── */
+    @keyframes underline-in {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .hl-underline {
+      position: relative; display: inline;
+    }
+    .hl-underline::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--green2), #4ADE80);
+      width: 0%; animation: underline-in 1s .8s var(--transition) forwards;
+    }
+
+    /* ── OFFER BADGE POPULAR ── */
+    .popular-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--dark); font-size: 11px; font-weight: 800;
+      padding: 5px 20px; border-radius: 100px;
+      letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(240,180,41,.4);
+    }
+    .offer-box { position: relative; }
+
+    /* ── STICKY SECTION MINI-TRACKER ── */
+    .section-tracker {
+      position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+      z-index: 300; display: flex; flex-direction: column; gap: 8px;
+    }
+    .st-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.15); border: none; cursor: pointer;
+      transition: all .3s; padding: 0;
+    }
+    .st-dot.active { background: var(--green); box-shadow: 0 0 8px rgba(34,197,94,.5); transform: scale(1.3); }
+    @media (max-width: 900px) { .section-tracker { display: none; } }
+
+    /* ── MICRO-ANIMATION: CARD HOVER GLOW ── */
+    .benefit:hover .benefit-icon { box-shadow: 0 8px 24px rgba(34,197,94,.25); transform: scale(1.08) rotate(-4deg); transition: all .35s var(--transition); }
+    .benefit-icon { transition: all .35s var(--transition); }
+
+    /* ══════════════════════════════════════
+       PAGE NAVIGATION SYSTEM
+    ══════════════════════════════════════ */
+    body { padding-bottom: 74px; }
+
+    .page-slide { display: none; }
+    .page-slide.active {
+      display: block;
+      animation: pageIn .45s cubic-bezier(.4,0,.2,1) both;
+    }
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Page nav bar */
+    .page-nav-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 990;
+      background: rgba(5,14,9,.97);
+      border-top: 1px solid rgba(46,204,113,.14);
+      padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      backdrop-filter: blur(24px);
+    }
+    .page-btn {
+      background: none;
+      border: 2px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.5);
+      font-family: inherit; font-size: 13px; font-weight: 700;
+      padding: 10px 18px; border-radius: 12px; cursor: pointer;
+      transition: all .25s var(--transition);
+      min-width: 110px; text-align: center; letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    .page-btn:hover { border-color: var(--green2); color: var(--green2); }
+    .page-btn.hidden { visibility: hidden; pointer-events: none; }
+
+    .page-btn--next {
+      background: linear-gradient(135deg, var(--green2), var(--green3));
+      border-color: transparent; color: #fff;
+      font-size: 14px; padding: 12px 22px;
+      box-shadow: 0 4px 18px rgba(34,197,94,.4);
+    }
+    .page-btn--next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(34,197,94,.55);
+      border-color: transparent; color: #fff;
+    }
+    .page-btn--next.is-cta {
+      animation: glow-pulse 2.5s ease-in-out infinite;
+      font-size: 13px;
+    }
+
+    .page-nav-center { text-align: center; flex: 1; min-width: 0; }
+    .page-counter { font-size: 10px; color: rgba(255,255,255,.28); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 7px; }
+    .page-dots-nav { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; }
+    .pdot {
+      width: 6px; height: 6px; border-radius: 3px;
+      background: rgba(255,255,255,.14); border: none; cursor: pointer;
+      transition: all .3s var(--transition); padding: 0;
+    }
+    .pdot.active { background: var(--green2); box-shadow: 0 0 6px rgba(34,197,94,.5); width: 20px; }
+
+    /* Page label chip on each page */
+    .page-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.28); margin-bottom: 0; padding: 4px 0;
+    }
+    .page-label-dark { color: var(--muted); }
+  </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2329686677564453');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2329686677564453&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ── ANNOUNCEMENT BAR ── -->
+<div class="announce">
+  🔴 <strong>OFERTA TERMINA EM:</strong>
+  <span class="announce-cd" id="ann-cd">00:07:43</span>
+  <span class="announce-sep">·</span>
+  Preço sobe depois
+  <span class="announce-sep">·</span>
+  <a href="https://kiki.ao/6epe2gem" target="_blank" rel="noopener">Garantir agora →</a>
+</div>
+
+<!-- ── STICKY NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      30 Dias Sem Desculpas
+      <small>Método de Poupança · Angola</small>
+    </a>
+    <a href="https://kiki.ao/6epe2gem" class="nav-pill" target="_blank" rel="noopener">Comprar — 2.500 AOA</a>
+  </div>
+</nav>
+
+<!-- ═══ PAGES WRAPPER ═══ -->
+<div id="pages-wrapper">
+
+<!-- ╔══════════════╗ PAGE 1: HERO ╚══════════════╝ -->
+<div class="page-slide active" data-page="1">
+
+<!-- ══════════════════════════════════════
+     BLOCO 1 — HERO
+══════════════════════════════════════ -->
+<section class="hero" id="topo">
+  <!-- Particle Canvas -->
+  <canvas id="hero-particles"></canvas>
+  <!-- Mouse Spotlight -->
+  <div id="hero-spotlight"></div>
+
+  <!-- Video background ready for Higgsfield -->
+  <div class="hero-video-bg">
+    <!-- Uncomment and add your Higgsfield video URL below:
+    <video autoplay muted loop playsinline>
+      <source src="YOUR_HIGGSFIELD_VIDEO.mp4" type="video/mp4">
+      <source src="YOUR_HIGGSFIELD_VIDEO.webm" type="video/webm">
+    </video>
+    -->
+  </div>
+
+  <div class="wrap">
+    <div class="hero-badge">⏰ Oferta de Lançamento · Preço Sobe Em Breve</div>
+
+    <div class="hero-live">
+      <span class="live-dot"></span>
+      <span><strong id="hero-counter">500</strong> angolanos já começaram a poupar</span>
+    </div>
+
+    <h1 class="hero-hl">
+      O teu salário some<br>
+      todo mês —<br>
+      <em>e tu sabes porquê.</em>
+    </h1>
+
+    <p class="hero-sub">
+      Não é falta de dinheiro. Não é azar. É a ausência de um sistema.<br>
+      <strong>O Método dos 30 Dias</strong> foi criado para a realidade angolana — e vai mostrar-te como finalmente ver o teu kwanza crescer, mesmo que o teu salário pareça pequeno demais.
+    </p>
+
+    <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="hero-cta">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      QUERO COMEÇAR — APENAS 2.500 AOA
+    </a>
+    <div class="btn-meta btn-meta--light">
+      <span>💳 Multicaixa Express</span>
+      <span>🔒 Garantia 7 dias</span>
+      <span>⚡ Acesso imediato</span>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: hero → trust -->
+<div class="wave-div" style="background:var(--dark)">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C200,40 400,0 600,20 C800,40 1000,0 1200,20 L1200,40 L0,40 Z" fill="#0A1A10"/></svg>
+</div>
+
+<!-- Trust strip -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#34D87A" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      +500 Angolanos
+    </div>
+    <div class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#34D87A" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      4.9/5 Avaliações
+    </div>
+    <div class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#34D87A" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Criado para Angola
+    </div>
+    <div class="ti">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#34D87A" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Risco Zero · Garantia 7 Dias
+    </div>
+  </div>
+</div>
+
+
+</div><!-- end page 1 -->
+
+<!-- ╔══════════════╗ PAGE 2: O PROBLEMA ╚══════════════╝ -->
+<div class="page-slide" data-page="2">
+
+<!-- ══════════════════════════════════════
+     BLOCO 2 — ABERTURA / AGITAÇÃO
+══════════════════════════════════════ -->
+<section class="sec sec--white" id="realidade">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--light reveal-el">📌 A Realidade Que Ninguém Quer Admitir</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">Já trabalhaste o mês inteiro.<br>O salário entrou. E desapareceu.</h2>
+      <p class="sec-sub reveal-el">Não és irresponsável. Não és incompetente. Simplesmente nunca ninguém te ensinou como gerir dinheiro de verdade.</p>
+    </div>
+
+    <p class="pain-intro reveal-el">
+      Acorda cedo. Aguenta o trânsito de Luanda. Trabalha duro. E quando o salário entra — <strong>alguns dias depois já não sabes para onde foi metade.</strong>
+    </p>
+    <p class="pain-intro reveal-el">
+      Tentas poupar. Mas sempre aparece algo urgente. A família precisa. A conta vence. O carro avaria. E o mês acaba — <strong>com zero na conta e a mesma promessa: "No próximo mês começo."</strong>
+    </p>
+
+    <div class="agit-box reveal-el">
+      <h3>E assim passam os anos.<br><em>Mês após mês. Ano após ano.</em></h3>
+      <p>Há pessoas que ganham há 10 anos e não têm nada acumulado. Não é porque são preguiçosas. É porque ninguém lhes deu um sistema que funcione com kwanza, com a realidade angolana, com as pressões familiares que todos conhecemos.</p>
+      <p>A pergunta não é <em>"quando vou ganhar mais?"</em> — A pergunta real é: <em>"O que estou a fazer com o que já tenho?"</em></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 3 — AGITAÇÃO DA DOR (CARDS)
+══════════════════════════════════════ -->
+<section class="sec sec--light" id="reconheces">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--red reveal-el">🔴 Reconheces-te?</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">Isto acontece contigo todos os meses?</h2>
+      <p class="sec-sub reveal-el">Se respondeste sim a pelo menos 3 — este método foi criado exactamente para ti.</p>
+    </div>
+
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😓</div>
+      <p>"Recebi o salário há uma semana. Já não sei para onde foi metade."<em>E não é a primeira vez que acontece isso.</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😰</div>
+      <p>"Tento poupar — mas sempre aparece algo urgente antes de eu conseguir guardar qualquer coisa."<em>A poupança nunca chega a acontecer de facto.</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😤</div>
+      <p>"A família pede e eu não sei como dizer não sem criar conflito e parecer egoísta."<em>E acabo por dar — mesmo sem ter condições.</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😞</div>
+      <p>"Já disse 'vou começar a poupar no próximo mês' tantas vezes que já nem acredito em mim mesmo."<em>E o próximo mês nunca chega.</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😨</div>
+      <p>"Tenho medo que apareça uma emergência — médica, no carro, em casa — e não tenha de onde tirar o dinheiro."<em>A ansiedade financeira é constante.</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😔</div>
+      <p>"Tenho créditos e dívidas que parecem não ter fim — pago um e aparece outro."<em>Sinto que estou sempre a correr atrás do prejuízo.</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+    <div class="pain-card reveal-el" onclick="togglePain(this)">
+      <div class="pain-icon">😩</div>
+      <p>"Há anos que ganho dinheiro. E não tenho absolutamente nada a mostrar por isso."<em>Como é possível trabalhar tanto e chegar ao fim do mês sem nada?</em></p>
+      <div class="pain-card-check">✓</div>
+    </div>
+
+    <div class="pain-counter-wrap reveal-el" id="pain-counter-wrap" style="display:none">
+      <div class="pain-counter-bar"><div class="pain-counter-fill" id="pain-counter-fill"></div></div>
+      <div class="pain-counter-text">Marcaste <span id="pain-count">0</span> de 7 situações — <span id="pain-msg">clica nas que se aplicam a ti.</span></div>
+    </div>
+
+    <div style="margin-top:44px" class="reveal-el">
+      <a href="https://kiki.ao/6epe2gem" class="btn" target="_blank" rel="noopener" id="pain-cta">
+        QUERO RESOLVER ISSO AGORA — 2.500 AOA
+      </a>
+      <div class="btn-meta btn-meta--dark">
+        <span>⚡ Acesso imediato após pagamento</span>
+        <span>🔒 Garantia 7 dias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- end page 2 -->
+
+<!-- ╔══════════════╗ PAGE 3: A HISTÓRIA ╚══════════════╝ -->
+<div class="page-slide" data-page="3">
+
+<!-- ══════════════════════════════════════
+     BLOCO 4 — STORYTELLING
+══════════════════════════════════════ -->
+<section class="sec sec--white" id="historia">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--gold reveal-el">📖 Uma História Real</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">Eles faziam tudo certo.<br>E ainda assim perderam tudo.</h2>
+      <p class="sec-sub reveal-el">Esta história vai doer. Porque podias ser tu.</p>
+    </div>
+
+    <div class="story-box reveal-el">
+      <div class="story-eyebrow">🏠 Luanda · 2023</div>
+      <h3>O Casal Que Finalmente Estava a Conseguir Poupar</h3>
+      <div class="story-body">
+        <p>O António e a Graça levaram 3 anos a acumular <strong>280.000 AOA</strong>. Três anos de sacrifícios. De dizer não a saídas. De cortar na comida fora. De resistir às pressões da família.</p>
+        <p>Era o fundo de emergência deles. A almofada que os ia proteger. O orgulho de dois pais que queriam dar um futuro melhor ao filho de 7 anos.</p>
+        <p>Numa quinta-feira de manhã, o filho acordou com febre alta. Levaram-no à clínica. Os médicos pediram exames urgentes. Depois, internamento.</p>
+
+        <div class="story-impact">
+          <p>Em <span>11 dias</span>, os <strong>280.000 AOA</strong> poupados ao longo de <strong>3 anos</strong> foram-se. Internamento, medicamentos, exames, transporte. Tudo.</p>
+        </div>
+
+        <p>Quando o filho recebeu alta, o António olhou para o telemóvel e viu o saldo da conta: <strong>1.240 AOA.</strong></p>
+        <p>Não era o fim do mundo — o filho estava bem. Mas a Graça chorou nessa noite. Não de tristeza pelo dinheiro. Chorou porque percebeu que <em>tinham poupado da maneira errada.</em></p>
+        <p>Tinham guardado tudo num único lugar, sem separação, sem estratégia, sem protecção. Quando a emergência apareceu — que aparece sempre — não estavam realmente preparados.</p>
+        <p>Foi essa dor que os fez procurar um sistema de verdade. Um sistema com regras claras. Com categorias. Com protecção real contra emergências.</p>
+      </div>
+
+      <div class="story-lesson">
+        <p><em>"A poupança não é apenas guardar dinheiro. É saber guardar da forma certa — de modo que quando a vida aparecer, estejas de pé."</em></p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <p class="reveal-el" style="font-size:16px;line-height:1.85;color:var(--text)">O António e a Graça existem. A história deles é real. E todos os meses, em Angola, centenas de famílias vivem exactamente o mesmo.</p>
+      <p class="reveal-el" style="font-size:16px;line-height:1.85;color:var(--text);margin-top:14px">A questão não é <em>se</em> uma emergência vai acontecer. A questão é: <strong>quando acontecer, tu vais estar preparado?</strong></p>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- end page 3 -->
+
+<!-- ╔══════════════╗ PAGE 4: O MÉTODO ╚══════════════╝ -->
+<div class="page-slide" data-page="4">
+
+<!-- ══════════════════════════════════════
+     BLOCO 5 — MECANISMO ÚNICO
+══════════════════════════════════════ -->
+<section class="sec sec--dark" id="metodo">
+  <div class="wrap">
+    <div class="eyebrow reveal-el">💡 O Mecanismo</div>
+    <div class="sh">
+      <h2 class="sec-h sec-h--white reveal-el">O Problema Não É o Teu Salário.<br>É a Ausência de um Sistema Financeiro.</h2>
+    </div>
+
+    <p class="lead reveal-el" style="margin-bottom:28px">A maioria dos angolanos gere o dinheiro assim — e é por isso que nunca sobra nada:</p>
+
+    <div class="flow-box reveal-el">
+      <div class="flow-lbl">❌ Sem Método — O que acontece todo mês</div>
+      <div class="flow-steps">
+        <span class="fs">Salário</span><span class="fa">→</span>
+        <span class="fs">Renda</span><span class="fa">→</span>
+        <span class="fs">Transporte</span><span class="fa">→</span>
+        <span class="fs">Família</span><span class="fa">→</span>
+        <span class="fs">Comida</span><span class="fa">→</span>
+        <span class="fs fs--bad">O que sobrar: "poupa" 😔 (nunca sobra)</span>
+      </div>
+    </div>
+
+    <p class="lead reveal-el" style="margin-bottom:8px;margin-top:32px">O Método dos 30 Dias inverte esta lógica com o princípio <strong style="color:var(--green)">"Paga-te Primeiro"</strong>:</p>
+
+    <div class="flow-box reveal-el">
+      <div class="flow-lbl">✅ Com o Método — O que muda</div>
+      <div class="flow-steps">
+        <span class="fs">Salário</span><span class="fa">→</span>
+        <span class="fs fs--good">Poupa PRIMEIRO ✓</span><span class="fa">→</span>
+        <span class="fs">Renda</span><span class="fa">→</span>
+        <span class="fs">Família (valor fixo)</span><span class="fa">→</span>
+        <span class="fs">Viver bem</span>
+      </div>
+    </div>
+
+    <div class="mechanism-highlight reveal-el">
+      <p>Quando a poupança vem <em>antes</em> de tudo o resto,<br>ela deixa de depender de "sobrar".<br><em>Ela simplesmente acontece.</em></p>
+    </div>
+
+    <ul class="checks">
+      <li class="reveal-el"><span class="ic">✓</span> Com exemplos reais em kwanza — para quem ganha entre 80.000 e 350.000 AOA</li>
+      <li class="reveal-el"><span class="ic">✓</span> Com estratégia clara para gerir as obrigações familiares sem destruir o orçamento</li>
+      <li class="reveal-el"><span class="ic">✓</span> Com o kixikila como ferramenta de poupança organizada e segura</li>
+      <li class="reveal-el"><span class="ic">✓</span> Com protecção contra a inflação angolana — sem precisar de perceber de economia</li>
+      <li class="reveal-el"><span class="ic">✓</span> Com um fundo de emergência real — para que a próxima crise não te destrua</li>
+      <li class="reveal-el"><span class="ic">✓</span> Com casos práticos de Luanda, Benguela, Huambo e todo o território</li>
+    </ul>
+
+    <!-- SAVINGS CALCULATOR -->
+    <div class="calc-box reveal-el" id="calculadora">
+      <h3>💰 Calculadora de Poupança</h3>
+      <p class="calc-sub">Coloca o teu salário e vê quanto podes poupar com o método.</p>
+
+      <div class="calc-input-group">
+        <label class="calc-label">O teu salário mensal</label>
+        <input type="text" class="calc-input" id="calc-salary" value="150.000" inputmode="numeric">
+        <span class="calc-suffix">AOA</span>
+      </div>
+
+      <div class="calc-input-group">
+        <label class="calc-label">Percentagem de poupança</label>
+        <input type="range" class="calc-slider" id="calc-percent" min="2" max="20" value="10">
+        <div class="calc-percent-val" id="calc-percent-val">10%</div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result">
+          <div class="calc-result-lbl">Por Mês</div>
+          <div class="calc-result-val" id="calc-monthly">15.000</div>
+          <div class="calc-result-sub">AOA / mês</div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-lbl">Em 6 Meses</div>
+          <div class="calc-result-val" id="calc-6months">90.000</div>
+          <div class="calc-result-sub">AOA acumulados</div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-lbl">Em 1 Ano</div>
+          <div class="calc-result-val" id="calc-yearly">180.000</div>
+          <div class="calc-result-sub">AOA acumulados</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:44px" class="reveal-el">
+      <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="mechanism-cta">
+        QUERO O MÉTODO — 2.500 AOA
+      </a>
+      <div class="btn-meta btn-meta--light">
+        <span>⚡ Acesso imediato</span>
+        <span>💳 Multicaixa Express</span>
+        <span>🔒 Garantia 7 dias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 5B — COMO FUNCIONA
+══════════════════════════════════════ -->
+<section class="sec sec--dark3" id="como-funciona">
+  <div class="wrap">
+    <div class="eyebrow reveal-el">⚙️ O Processo</div>
+    <div class="sh">
+      <h2 class="sec-h sec-h--white reveal-el">Como Funciona o Método dos 30 Dias</h2>
+      <p class="sec-sub sec-sub--white reveal-el">Simples. Directo. Pensado para quem tem vida real e não tem tempo a perder.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal-el">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Compras e recebes acesso imediato</h3>
+          <p>Após o pagamento via Multicaixa Express, BAI, BFA ou e-Kwanza, recebes o link com todo o material no WhatsApp em menos de 5 minutos. Sem espera. Sem complicação.</p>
+          <span class="step-tag">⚡ Menos de 5 minutos após pagamento</span>
+        </div>
+      </div>
+      <div class="step reveal-el">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Segues o plano — um dia de cada vez</h3>
+          <p>O método está dividido em tarefas simples, dia a dia. No Dia 1 fazes uma coisa. No Dia 2 fazes outra. Sem teoria. Sem overwhelm. Como seguir uma receita de cozinha — só que o resultado é o teu dinheiro a crescer.</p>
+          <span class="step-tag">📅 15 a 20 minutos por dia nos primeiros 7 dias</span>
+        </div>
+      </div>
+      <div class="step reveal-el">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Vês os resultados no fim do mês</h3>
+          <p>No final do primeiro mês, vais ter pela primeira vez um número real poupado — e a clareza total de para onde foi cada kwanza. Esse momento muda tudo. Porque quem vê resultados, continua.</p>
+          <span class="step-tag">💰 Primeiros resultados visíveis no Mês 1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- end page 4 -->
+
+<!-- ╔══════════════╗ PAGE 5: BENEFÍCIOS ╚══════════════╝ -->
+<div class="page-slide" data-page="5">
+
+<!-- ══════════════════════════════════════
+     BLOCO 6 — BENEFÍCIOS
+══════════════════════════════════════ -->
+<section class="sec sec--white" id="beneficios">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--light reveal-el">🚀 Transformação Real</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">O Que Muda Na Tua Vida<br>Depois dos 30 Dias</h2>
+      <p class="sec-sub reveal-el">Não são características. São resultados que vais sentir na tua vida real, em kwanza, todos os meses.</p>
+    </div>
+
+    <div class="benefit reveal-el">
+      <div class="benefit-icon">💡</div>
+      <div>
+        <h3>Descobres exactamente para onde cada kwanza está a ir</h3>
+        <p>Sem surpresas. Sem "não sei o que aconteceu" ao dinheiro. Vais ter clareza total sobre cada despesa — e isso é o começo de tudo.</p>
+        <span class="benefit-result">→ Fim dos "sumiços" de dinheiro inexplicáveis</span>
+      </div>
+    </div>
+
+    <div class="benefit reveal-el">
+      <div class="benefit-icon">🛡️</div>
+      <div>
+        <h3>Tens um fundo de emergência real — para quando a vida apertar</h3>
+        <p>Quando o filho adoecer, o carro avariar ou o emprego tremer — não precisas de pedir dinheiro emprestado a ninguém. A almofada estará lá.</p>
+        <span class="benefit-result">→ Fim da ansiedade financeira constante</span>
+      </div>
+    </div>
+
+    <div class="benefit reveal-el">
+      <div class="benefit-icon">👨‍👩‍👧</div>
+      <div>
+        <h3>Ajudas a família sem te destruíres financeiramente</h3>
+        <p>Aprendes a definir um valor mensal fixo para as obrigações familiares — que toda a gente compreende e respeita. Sem conflitos. Sem culpa.</p>
+        <span class="benefit-result">→ Paz em casa e nas relações familiares</span>
+      </div>
+    </div>
+
+    <div class="benefit reveal-el">
+      <div class="benefit-icon">📅</div>
+      <div>
+        <h3>Tens um plano claro para cada um dos 30 dias</h3>
+        <p>Não precisas de inventar nada. Não precisas de perceber de finanças. Só seguir o passo — dia a dia — como uma receita de cozinha que funciona.</p>
+        <span class="benefit-result">→ Simplicidade que te faz avançar</span>
+      </div>
+    </div>
+
+    <div class="benefit reveal-el">
+      <div class="benefit-icon">💰</div>
+      <div>
+        <h3>O teu dinheiro cresce mesmo com a inflação em Angola</h3>
+        <p>Aprendes a usar o kixikila, os Títulos do Tesouro e o dólar como protecção — explicado em linguagem simples, sem precisar de ser economista.</p>
+        <span class="benefit-result">→ O kwanza trabalha para ti, não contra ti</span>
+      </div>
+    </div>
+
+    <div class="benefit reveal-el">
+      <div class="benefit-icon">🔓</div>
+      <div>
+        <h3>Quebras o ciclo de dívidas — de uma vez por todas</h3>
+        <p>O método tem uma estratégia específica para quem tem créditos e dívidas activas. Começas por organizar, depois pagas, depois poupas.</p>
+        <span class="benefit-result">→ Liberdade financeira real dentro de meses</span>
+      </div>
+    </div>
+
+    <div style="margin-top:44px" class="reveal-el">
+      <a href="https://kiki.ao/6epe2gem" class="btn" target="_blank" rel="noopener" id="benefit-cta">
+        QUERO ESTAS MUDANÇAS — 2.500 AOA
+      </a>
+      <div class="btn-meta btn-meta--dark">
+        <span>🔒 Garantia total 7 dias</span>
+        <span>⚡ Acesso imediato</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- end page 5 -->
+
+<!-- ╔══════════════╗ PAGE 6: A OFERTA ╚══════════════╝ -->
+<div class="page-slide" data-page="6">
+
+<!-- ══════════════════════════════════════
+     BLOCO 7 — BÔNUS
+══════════════════════════════════════ -->
+<section class="sec sec--light" id="oferta">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--gold reveal-el">🎁 Oferta Especial de Lançamento</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">Tudo O Que Recebes Hoje<br>Nesta Campanha</h2>
+      <p class="sec-sub reveal-el">Para esta campanha de lançamento, adicionámos bónus exclusivos que só estão disponíveis agora.</p>
+    </div>
+
+    <div class="offer-box reveal-el">
+      <div class="popular-badge">🏆 Mais Popular · Melhor Valor</div>
+      <p class="offer-title">📦 O Teu Pacote Completo:</p>
+
+      <div class="offer-row">
+        <div class="ocheck">✓</div>
+        <div>
+          <h4>📘 E-book — O Método dos 30 Dias Sem Desculpas</h4>
+          <p>O guia completo com 14 capítulos. Plano dia a dia criado para a realidade angolana — com exemplos em kwanza, estratégias para o kixikila, para obrigações familiares e para protecção contra inflação.</p>
+          <span class="val">Valor: 3.500 AOA</span>
+        </div>
+      </div>
+
+      <div class="offer-row offer-bonus">
+        <div class="ocheck">🎁</div>
+        <div>
+          <div class="bonus-tag">BÓNUS 1 — Exclusivo desta Campanha</div>
+          <h4>📊 Planilha Mentalidade Mwangolé</h4>
+          <p>A planilha inteligente de orçamento criada especialmente para Angola. Google Sheets pronta a usar, em AOA. Categorias angolanas reais, cálculo automático, fundo de emergência integrado. Descarregas hoje e usas amanhã.</p>
+          <span class="val">Valor: 3.500 AOA</span>
+        </div>
+      </div>
+
+      <div class="offer-row offer-bonus">
+        <div class="ocheck">🎁</div>
+        <div>
+          <div class="bonus-tag">BÓNUS 2 — Exclusivo desta Campanha</div>
+          <h4>🤝 Guia do Kixikila Inteligente</h4>
+          <p>Como entrar, organizar e maximizar o kixikila como ferramenta de poupança séria. Inclui como escolher o grupo certo, como negociar o valor e como integrar no teu orçamento mensal.</p>
+          <span class="val">Valor: 2.000 AOA</span>
+        </div>
+      </div>
+
+      <div class="offer-row offer-bonus">
+        <div class="ocheck">🎁</div>
+        <div>
+          <div class="bonus-tag">BÓNUS 3 — Exclusivo desta Campanha</div>
+          <h4>💬 30 Frases Para Dizer Não à Família Sem Criar Conflito</h4>
+          <p>Scripts adaptados à realidade angolana. Como recusar pedidos de dinheiro sem parecer egoísta, sem criar brigas e sem danificar relações importantes.</p>
+          <span class="val">Valor: 1.500 AOA</span>
+        </div>
+      </div>
+
+      <div class="offer-row offer-bonus">
+        <div class="ocheck">🎁</div>
+        <div>
+          <div class="bonus-tag">BÓNUS 4 — Acesso ao Grupo</div>
+          <h4>💬 Grupo WhatsApp "Poupadores de Angola"</h4>
+          <p>Comunidade exclusiva onde podes partilhar o teu progresso, tirar dúvidas e receber apoio da equipa durante os 30 dias e além.</p>
+          <span class="val">Valor: 2.000 AOA</span>
+        </div>
+      </div>
+
+      <hr class="offer-divider">
+
+      <div class="offer-total-row">
+        <div>
+          <div style="font-size:13px;color:var(--muted)">Valor total do pacote</div>
+          <div class="orig">12.500 AOA</div>
+          <div class="saving-badge">🎉 Poupas 10.000 AOA hoje!</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:13px;color:var(--muted)">Hoje por apenas</div>
+          <div><span class="price-big">2.500</span> <span class="price-aoa">AOA</span></div>
+        </div>
+      </div>
+
+      <div class="pay-tags">
+        <span class="ptag">💳 Multicaixa Express</span>
+        <span class="ptag">🏦 BAI · BFA · BPC · BIC</span>
+        <span class="ptag">📱 e-Kwanza</span>
+      </div>
+
+      <div style="margin-top:32px">
+        <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="offer-cta">
+          🟢 QUERO O PACOTE COMPLETO — 2.500 AOA
+        </a>
+        <div class="btn-meta btn-meta--dark">
+          <span>⚡ Acesso imediato após pagamento</span>
+          <span>🔒 Garantia total de 7 dias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- end page 6 -->
+
+<!-- ╔══════════════╗ PAGE 7: RESULTADOS ╚══════════════╝ -->
+<div class="page-slide" data-page="7">
+
+<!-- ══════════════════════════════════════
+     BLOCO 8 — PROVA SOCIAL
+══════════════════════════════════════ -->
+<section class="sec sec--dark" id="resultados">
+  <div class="wrap">
+    <div class="eyebrow reveal-el">🏆 Resultados Reais</div>
+    <div class="sh">
+      <h2 class="sec-h sec-h--white reveal-el">Angolanos Que Mudaram<br>a Relação com o Dinheiro</h2>
+    </div>
+
+    <div class="stats">
+      <div style="text-align:center" class="reveal-el">
+        <div class="stat-num" data-count="500">0</div>
+        <div class="stat-lbl">Angolanos</div>
+      </div>
+      <div style="text-align:center" class="reveal-el">
+        <div class="stat-num" data-count="4.9" data-decimal="true">0</div>
+        <div class="stat-lbl">Avaliação Média</div>
+      </div>
+      <div style="text-align:center" class="reveal-el">
+        <div class="stat-num" data-count="30">0</div>
+        <div class="stat-lbl">Dias de Plano</div>
+      </div>
+    </div>
+
+    <!-- Testimonial Carousel -->
+    <div class="carousel-wrapper reveal-el">
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide">
+          <div class="tcard">
+            <div class="stars">★★★★★</div>
+            <blockquote>"No primeiro mês segui o método e poupei 18.000 AOA. Parece pouco — mas foi a primeira vez na minha vida que vi dinheiro a crescer na minha conta. Não sabia que era possível com o meu salário."</blockquote>
+            <div class="tauthor">
+              <div class="tavatar">A</div>
+              <div>
+                <div class="tname">Ana de Sousa</div>
+                <div class="trole">Enfermeira · Luanda</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="tcard">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Ganhava 120.000 AOA e achava impossível poupar. Depois do guia percebi que gastava 35.000 em coisas que nem me lembrava. Em 6 meses: 60.000 AOA de reserva. Pela primeira vez sinto que controlo o meu dinheiro."</blockquote>
+            <div class="tauthor">
+              <div class="tavatar">C</div>
+              <div>
+                <div class="tname">Carlos Manuel</div>
+                <div class="trole">Condutor · Benguela</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="tcard">
+            <div class="stars">★★★★★</div>
+            <blockquote>"O capítulo de como dizer não à família sem criar conflito foi o que mais me marcou. Hoje contribuo com valor fixo — e toda a gente respeita. Este guia mudou a minha paz de espírito."</blockquote>
+            <div class="tauthor">
+              <div class="tavatar">T</div>
+              <div>
+                <div class="tname">Tomás Fernandes</div>
+                <div class="trole">Técnico · Huambo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots">
+        <button class="carousel-dot active" data-slide="0" aria-label="Depoimento 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Depoimento 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Depoimento 3"></button>
+      </div>
+    </div>
+
+    <!-- Prints reais do WhatsApp -->
+    <div class="prints-grid" style="margin-top:32px">
+      <img src="images/print1.jpeg" alt="Cliente recebe o produto completo no WhatsApp" class="print-img reveal-el" loading="lazy">
+      <img src="images/print2.jpeg" alt="Cliente confirma o pagamento por referência" class="print-img reveal-el" loading="lazy">
+    </div>
+
+    <div style="margin-top:40px" class="reveal-el">
+      <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="proof-cta">
+        QUERO SER O PRÓXIMO — 2.500 AOA
+      </a>
+      <div class="btn-meta btn-meta--light">
+        <span>⚡ Acesso imediato</span>
+        <span>🔒 Garantia 7 dias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 9 — ESCASSEZ / URGÊNCIA
+══════════════════════════════════════ -->
+<section class="sec sec--white" id="urgencia">
+  <div class="wrap">
+    <div class="ubox reveal-el">
+      <div class="eyebrow eyebrow--gold" style="margin-bottom:20px">⏰ Preço de Lançamento</div>
+      <h3>Esta Oferta Está a Terminar</h3>
+      <p class="usub">O preço de lançamento é válido por tempo limitado. Quando esta campanha terminar, o preço sobe — e os bónus desaparecem.</p>
+      <div class="countdown">
+        <div class="cdu"><span class="cdn" id="cd-d">07</span><div class="cdl">Dias</div></div>
+        <div class="cdsep">:</div>
+        <div class="cdu"><span class="cdn" id="cd-h">00</span><div class="cdl">Horas</div></div>
+        <div class="cdsep">:</div>
+        <div class="cdu"><span class="cdn" id="cd-m">00</span><div class="cdl">Min</div></div>
+        <div class="cdsep">:</div>
+        <div class="cdu"><span class="cdn" id="cd-s">00</span><div class="cdl">Seg</div></div>
+      </div>
+      <div class="price-row"><s>12.500 AOA</s> → Apenas <strong>2.500 AOA</strong></div>
+      <p class="urgency-note">⚠️ Quando o contador chegar a zero, o preço voltará ao valor original e os bónus serão removidos.</p>
+      <div style="margin-top:32px">
+        <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="urgency-cta">
+          GARANTIR O PREÇO DE LANÇAMENTO AGORA
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div><!-- end page 7 -->
+
+<!-- ╔══════════════╗ PAGE 8: DÚVIDAS ╚══════════════╝ -->
+<div class="page-slide" data-page="8">
+
+<!-- ══════════════════════════════════════
+     BLOCO 10 — OBJECÇÕES
+══════════════════════════════════════ -->
+<section class="sec sec--light" id="duvidas">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--light reveal-el">❓ Sem Desculpas</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">Já Estás a Pensar Numa Razão Para Não Comprar?</h2>
+      <p class="sec-sub reveal-el">Respondemos a todas. Porque já ouvimos todas.</p>
+    </div>
+
+    <div class="obj reveal-el">
+      <div class="obj-q"><div class="obj-icon">?</div> "O meu salário é muito pequeno para poupar."</div>
+      <div class="obj-a">Poupar 5% de 100.000 AOA são apenas 5.000 kwanzas por mês. Em 12 meses — 60.000 AOA poupados. Em 2 anos — 120.000 AOA. O problema nunca foi o valor do salário. Foi a ausência de um método. Quem começa com pouco, cresce com muito.</div>
+    </div>
+
+    <div class="obj reveal-el">
+      <div class="obj-q"><div class="obj-icon">?</div> "Tenho muita família para sustentar — é impossível poupar."</div>
+      <div class="obj-a">O método tem um capítulo inteiro dedicado às obrigações familiares angolanas. A solução não é ignorar a família — é definir um valor mensal fixo que toda a gente compreende e respeita. Quem não tem finanças estáveis não consegue ajudar ninguém de forma consistente. Cuida primeiro de ti para poderes cuidar deles.</div>
+    </div>
+
+    <div class="obj reveal-el">
+      <div class="obj-q"><div class="obj-icon">?</div> "A inflação destrói tudo — não vale a pena poupar kwanza."</div>
+      <div class="obj-a">A inflação é exactamente a razão para poupar de forma inteligente — não de forma ignorante. No guia aprendes como usar Títulos do Tesouro angolanos, dólar como protecção e kixikila organizado. Guardar kwanza parado numa gaveta perde valor. Gerir kwanza com método — protege e cresce.</div>
+    </div>
+
+    <div class="obj reveal-el">
+      <div class="obj-q"><div class="obj-icon">?</div> "Vou começar quando ganhar mais."</div>
+      <div class="obj-a">Quem não poupa com pouco, não poupa com muito. Quando ganhares mais, os gastos também vão subir — e a lógica vai ser a mesma. O momento certo é agora. Com o salário que já tens. Com o kwanza que já ganha.</div>
+    </div>
+
+    <div class="obj reveal-el">
+      <div class="obj-q"><div class="obj-icon">?</div> "Não percebo de finanças e tenho medo de não conseguir."</div>
+      <div class="obj-a">Não precisas de perceber de finanças. O método é um plano dia a dia — Dia 1, Dia 2, Dia 3. Sem fórmulas. Sem termos complicados. Se consegues seguir uma receita de cozinha, consegues seguir este método. Foi criado para pessoas normais, com vidas normais, em Angola.</div>
+    </div>
+
+    <div class="obj reveal-el">
+      <div class="obj-q"><div class="obj-icon">?</div> "Tenho dívidas — como posso poupar se devo dinheiro?"</div>
+      <div class="obj-a">Esta é exactamente a ordem correcta: organizar → pagar dívidas → poupar. O método tem uma estratégia específica para quem está em dívida. Começas por parar de criar novas dívidas — e isso já é uma vitória enorme.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 11 — GARANTIA
+══════════════════════════════════════ -->
+<section class="sec sec--white" id="garantia">
+  <div class="wrap">
+    <div class="gbox reveal-el">
+      <div class="gseal">🔒</div>
+      <h3>Garantia Completa de 7 Dias — Risco Zero Para Ti</h3>
+      <p>Aplica o método durante 7 dias. Se não sentires mais clareza, mais controlo e mais confiança sobre o teu dinheiro — devolvo 100% do valor pago. Sem perguntas. Sem burocracia. Sem complicação. E ficas com todos os bónus de qualquer forma. O risco é todo meu — não teu.</p>
+      <div class="gbox-foot">🛡️ Garantia de satisfação total — 7 dias completos · Risco Zero</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 12 — FAQ
+══════════════════════════════════════ -->
+<section class="sec sec--light" id="faq">
+  <div class="wrap">
+    <div class="eyebrow eyebrow--light reveal-el">FAQ</div>
+    <div class="sh">
+      <h2 class="sec-h reveal-el">Perguntas Frequentes</h2>
+    </div>
+
+    <div class="faq reveal-el"><div class="faq-q">Funciona mesmo com salário de 100.000 AOA?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">Sim. O guia foi construído com exemplos reais entre 80.000 e 350.000 AOA — a realidade da maioria dos trabalhadores angolanos. Começas por poupar 2 a 5% e cresces a partir daí. O princípio funciona com qualquer valor.</div></div></div>
+
+    <div class="faq reveal-el"><div class="faq-q">Quanto tempo preciso por dia?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">15 a 20 minutos por dia nos primeiros 7 dias para criar o sistema. Depois de estar configurado, menos de 10 minutos por semana para manter. É menos tempo do que passas nas redes sociais.</div></div></div>
+
+    <div class="faq reveal-el"><div class="faq-q">E se o meu rendimento for irregular (negócio, vendas)?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">Sim, funciona. O guia tem um caso prático específico para comerciantes e pessoas com renda variável — com uma estratégia de "salário mínimo pessoal" que resolve exactamente esse desafio.</div></div></div>
+
+    <div class="faq reveal-el"><div class="faq-q">O que acontece se eu não gostar?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">Tens 7 dias de garantia total e completa. Se não ficares satisfeito com o método, devolves o dinheiro. Sem perguntas, sem burocracia. E ficas com todos os bónus de qualquer forma.</div></div></div>
+
+    <div class="faq reveal-el"><div class="faq-q">Como vou receber o acesso?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">Imediatamente após a confirmação do pagamento recebes o link de acesso por WhatsApp. Menos de 5 minutos de espera. Sem complicação.</div></div></div>
+
+    <div class="faq reveal-el"><div class="faq-q">Como posso pagar?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">💳 Multicaixa Express · 🏦 Transferência bancária — BAI, BFA, BPC, BIC · 📱 e-Kwanza. Tens dúvidas sobre o pagamento? Fala connosco: <a href="https://wa.me/244951257125">WhatsApp 951 257 125</a>.</div></div></div>
+
+    <div class="faq reveal-el"><div class="faq-q">Tem suporte se eu tiver dúvidas durante o processo?<div class="faq-ic">+</div></div><div class="faq-a"><div class="faq-ai">Sim. Tens acesso ao grupo WhatsApp "Poupadores de Angola" onde podes colocar dúvidas e receber apoio da comunidade e da equipa. Não ficas sozinho neste processo.</div></div></div>
+  </div>
+</section>
+
+
+</div><!-- end page 8 -->
+
+<!-- ╔══════════════╗ PAGE 9: DECISÃO FINAL ╚══════════════╝ -->
+<div class="page-slide" data-page="9">
+
+<!-- ══════════════════════════════════════
+     BLOCO 12B — OS DOIS CAMINHOS
+══════════════════════════════════════ -->
+<section class="sec sec--white" id="caminhos">
+  <div class="wrap">
+    <div class="sh" style="text-align:center">
+      <h2 class="sec-h reveal-el">Neste Momento, Só Tens Dois Caminhos.</h2>
+    </div>
+
+    <div class="paths-grid">
+      <div class="path-card path-card--bad reveal-el">
+        <h3>❌ Caminho 1: Fechar a Página</h3>
+        <p>Podes ignorar esta oferta. Podes dizer que "agora não é o momento" ou que o salário "ainda é muito baixo".</p>
+        <p>O resultado? O mês acaba, o dinheiro some. Daqui a um ano vais estar exactamente no mesmo lugar: a trabalhar duro, mas sem nada na conta. Com a mesma ansiedade e medo de emergências.</p>
+      </div>
+
+      <div class="path-card path-card--good reveal-el">
+        <h3>✅ Caminho 2: O Método</h3>
+        <p>Podes investir 2.500 AOA (menos do que um jantar rápido) e seguir um plano que funciona em Angola.</p>
+        <p>O resultado? No próximo mês já tens o teu dinheiro sob controlo. Em poucos meses, tens o teu primeiro fundo de emergência. O teu kwanza cresce. E a paz de espírito regressa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 13 — CTA FINAL EMOCIONAL
+══════════════════════════════════════ -->
+<section class="sec sec--dark" id="decisao" style="text-align:center">
+  <div class="wrap">
+    <div class="eyebrow reveal-el">🎯 A Tua Decisão</div>
+    <h2 class="sec-h sec-h--white reveal-el" style="margin-bottom:20px">
+      A Tua Vida Financeira<br>Muda Hoje — Ou Fica Igual.
+    </h2>
+    <p class="sec-sub sec-sub--white reveal-el" style="margin-bottom:40px">
+      Cada mês que passa sem um sistema é mais um mês de salário que desaparece. A diferença entre quem poupa e quem não poupa não é o salário — é a decisão.
+    </p>
+
+    <div class="cta-grid">
+      <div class="sc reveal-el">
+        <div class="sc-name">Carlos · Benguela</div>
+        <div class="sc-num">60.000 AOA</div>
+        <div class="sc-det">de reserva · em 6 meses · salário de 120.000 AOA</div>
+      </div>
+      <div class="sc reveal-el">
+        <div class="sc-name">Josephine · Luanda</div>
+        <div class="sc-num">90.000 AOA</div>
+        <div class="sc-det">poupados · nunca tinha conseguido antes</div>
+      </div>
+    </div>
+
+    <div class="closing-quote reveal-el">
+      <p><em>"A liberdade financeira não começa quando ganhas mais.<br>Começa quando controlas o que já tens."</em></p>
+    </div>
+
+    <p class="sec-sub sec-sub--white reveal-el" style="margin-bottom:36px">
+      Este método custa <strong style="color:var(--green);font-size:20px">2.500 AOA</strong>. Menos do que duas refeições fora. Menos do que um táxi por semana. E pode mudar a tua relação com o dinheiro — para sempre.
+    </p>
+
+    <div class="reveal-el">
+      <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="final-cta">
+        🟢 QUERO COMEÇAR HOJE — APENAS 2.500 AOA
+      </a>
+      <div class="btn-meta btn-meta--light">
+        <span>⚡ Acesso imediato</span>
+        <span>💳 Multicaixa Express</span>
+        <span>🔒 Garantia 7 dias · Risco Zero</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 14 — P.S. FINAL
+══════════════════════════════════════ -->
+<div class="ps-block">
+  <div class="wrap">
+    <p class="reveal-el"><strong style="color:var(--green)">P.S.</strong> — Se chegaste até aqui e ainda estás a pensar, deixa-me ser directo contigo:</p>
+    <p class="reveal-el">O maior inimigo das tuas finanças não é a inflação. Não é o salário baixo. Não é a família. É o <strong style="color:var(--green)">"vou começar amanhã."</strong></p>
+    <p class="reveal-el">Amanhã torna-se na próxima semana. A próxima semana torna-se no próximo mês. E os anos passam — e o salário continua a desaparecer do mesmo jeito.</p>
+    <p class="reveal-el">Este método custa 2.500 AOA e tem garantia de 7 dias. Se não funcionar — devolves o dinheiro. Sem perguntas. Se funcionar — e vai funcionar — muda a tua vida financeira para sempre.</p>
+    <p class="reveal-el"><strong style="color:rgba(255,255,255,.8)">Não há razão real para esperar. Só há uma decisão a tomar.</strong></p>
+    <div style="margin-top:32px;max-width:440px" class="reveal-el">
+      <a href="https://kiki.ao/6epe2gem" class="btn btn--ghost" target="_blank" rel="noopener" id="ps-cta">
+        🔒 2.500 AOA · Acesso Imediato · Garantia 7 Dias
+      </a>
+    </div>
+  </div>
+</div>
+
+
+</div><!-- end page 9 -->
+</div><!-- end pages-wrapper -->
+
+
+<!-- ╔══════════════╗ PAGE NAV BAR ╚══════════════╝ -->
+<div class="page-nav-bar" id="page-nav-bar">
+  <button class="page-btn page-btn--prev hidden" id="page-prev">← Anterior</button>
+  <div class="page-nav-center">
+    <div class="page-counter" id="page-counter">Página 1 de 9</div>
+    <div class="page-dots-nav" id="page-dots-nav"></div>
+  </div>
+  <button class="page-btn page-btn--next" id="page-next">Próximo →</button>
+</div>
+
+
+<!-- mobile-cta removed — replaced by page-nav-bar -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <p><strong>O Método dos 30 Dias Sem Desculpas</strong> · Planilha Mentalidade Mwangolé</p>
+    <p>Dúvidas de pagamento? <a href="https://wa.me/244951257125">WhatsApp: 951 257 125</a></p>
+    <p style="margin-top:12px">© 2026 · Todos os direitos reservados · <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
+  </div>
+</footer>
+
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/244951257125" class="wa" target="_blank" rel="noopener" title="Dúvidas? Fala connosco no WhatsApp">
+  <div class="wa-ping"></div>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.93 11.93 0 0012.02 0C5.44 0 .06 5.38.06 11.96c0 2.1.55 4.16 1.6 5.97L0 24l6.25-1.64a11.95 11.95 0 005.77 1.47c6.58 0 11.96-5.38 11.96-11.96 0-3.19-1.24-6.19-3.46-8.39zm-8.5 18.36a9.93 9.93 0 01-5.06-1.38l-.36-.22-3.74.98 1-3.64-.24-.38a9.91 9.91 0 01-1.52-5.24C2.1 6.5 6.56 2.04 12.02 2.04c2.65 0 5.14 1.03 7.01 2.91a9.87 9.87 0 012.9 7c0 5.47-4.46 9.89-9.91 9.89zm5.44-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.07 3.16 5.01 4.43.7.3 1.25.48 1.67.62.7.22 1.34.19 1.84.11.56-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+</a>
+
+
+<!-- Sales Toast -->
+<div class="sales-toast" id="sales-toast">
+  <div class="st-icon">📦</div>
+  <div class="st-text">
+    <strong id="st-name">Pedro do Cazenga</strong>
+    <span id="st-action">comprou o pacote completo</span>
+    <span class="st-time" id="st-time">há 2 minutos</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT — INTERACTIVITY ENGINE
+═══════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── 1. HERO PARTICLE SYSTEM ──
+  (function initParticles() {
+    var canvas = document.getElementById('hero-particles');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var PARTICLE_COUNT = 50;
+
+    function resize() {
+      var hero = canvas.parentElement;
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function Particle() {
+      this.reset();
+    }
+    Particle.prototype.reset = function() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.speedY = (Math.random() - 0.5) * 0.3 - 0.15;
+      this.opacity = Math.random() * 0.4 + 0.1;
+      this.life = Math.random() * 200 + 100;
+      this.maxLife = this.life;
+    };
+    Particle.prototype.update = function() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.life--;
+      this.opacity = (this.life / this.maxLife) * 0.4;
+      if (this.life <= 0 || this.x < -10 || this.x > canvas.width + 10 || this.y < -10 || this.y > canvas.height + 10) {
+        this.reset();
+      }
+    };
+    Particle.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(52, 216, 122, ' + this.opacity + ')';
+      ctx.fill();
+    };
+
+    for (var i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+
+      // Draw connections
+      for (var a = 0; a < particles.length; a++) {
+        for (var b = a + 1; b < particles.length; b++) {
+          var dx = particles[a].x - particles[b].x;
+          var dy = particles[a].y - particles[b].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.strokeStyle = 'rgba(52, 216, 122, ' + (0.06 * (1 - dist / 120)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // ── 2. MOUSE SPOTLIGHT ──
+  (function initSpotlight() {
+    var hero = document.querySelector('.hero');
+    var spotlight = document.getElementById('hero-spotlight');
+    if (!hero || !spotlight) return;
+
+    hero.addEventListener('mousemove', function(e) {
+      var rect = hero.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      spotlight.style.background = 'radial-gradient(600px circle at ' + x + 'px ' + y + 'px, rgba(34,197,94,.06), transparent 60%)';
+    });
+  })();
+
+  // ── 3. SCROLL REVEAL ──
+  (function initReveal() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal-el').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+
+  // ── 4. ANIMATED COUNTERS ──
+  (function initCounters() {
+    var counted = false;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting && !counted) {
+          counted = true;
+          document.querySelectorAll('[data-count]').forEach(function(el) {
+            var target = parseFloat(el.getAttribute('data-count'));
+            var isDecimal = el.hasAttribute('data-decimal');
+            var suffix = target === 500 ? '+' : '';
+            var duration = 1800;
+            var start = performance.now();
+
+            function step(now) {
+              var progress = Math.min((now - start) / duration, 1);
+              // Ease out cubic
+              var ease = 1 - Math.pow(1 - progress, 3);
+              var current = ease * target;
+              if (isDecimal) {
+                el.textContent = current.toFixed(1);
+              } else {
+                el.textContent = Math.floor(current) + suffix;
+              }
+              if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    var statsEl = document.querySelector('.stats');
+    if (statsEl) observer.observe(statsEl);
+  })();
+
+  // ── 5. TESTIMONIAL CAROUSEL ──
+  (function initCarousel() {
+    var track = document.getElementById('carousel-track');
+    var dots = document.querySelectorAll('.carousel-dot');
+    if (!track || !dots.length) return;
+    var current = 0;
+    var total = dots.length;
+    var interval;
+
+    function goTo(index) {
+      current = index;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(this.getAttribute('data-slide')));
+        clearInterval(interval);
+        startAutoPlay();
+      });
+    });
+
+    function startAutoPlay() {
+      interval = setInterval(function() {
+        goTo((current + 1) % total);
+      }, 5000);
+    }
+    startAutoPlay();
+
+    // Touch / swipe support
+    var startX = 0;
+    var isDragging = false;
+    track.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      if (!isDragging) return;
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && current < total - 1) goTo(current + 1);
+        else if (diff < 0 && current > 0) goTo(current - 1);
+        clearInterval(interval);
+        startAutoPlay();
+      }
+      isDragging = false;
+    }, { passive: true });
+  })();
+
+  // ── 6. SAVINGS CALCULATOR ──
+  (function initCalculator() {
+    var salaryInput = document.getElementById('calc-salary');
+    var percentSlider = document.getElementById('calc-percent');
+    var percentVal = document.getElementById('calc-percent-val');
+    var monthlyEl = document.getElementById('calc-monthly');
+    var sixMonthEl = document.getElementById('calc-6months');
+    var yearlyEl = document.getElementById('calc-yearly');
+    if (!salaryInput) return;
+
+    function formatNum(n) {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function parseSalary(str) {
+      return parseInt(str.replace(/\D/g, ''), 10) || 0;
+    }
+
+    function updateCalc() {
+      var salary = parseSalary(salaryInput.value);
+      var percent = parseInt(percentSlider.value, 10);
+      var monthly = Math.round(salary * percent / 100);
+
+      percentVal.textContent = percent + '%';
+      monthlyEl.textContent = formatNum(monthly);
+      sixMonthEl.textContent = formatNum(monthly * 6);
+      yearlyEl.textContent = formatNum(monthly * 12);
+
+      // Update slider gradient
+      var pct = ((percent - 2) / 18) * 100;
+      percentSlider.style.background = 'linear-gradient(90deg, #22C55E ' + pct + '%, rgba(255,255,255,.1) ' + pct + '%)';
+    }
+
+    salaryInput.addEventListener('input', function() {
+      var raw = this.value.replace(/\D/g, '');
+      this.value = formatNum(parseInt(raw, 10) || 0);
+      updateCalc();
+    });
+
+    percentSlider.addEventListener('input', updateCalc);
+    updateCalc();
+  })();
+
+  // ── 7. FAQ ACCORDION ──
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = this.closest('.faq');
+      var was = item.classList.contains('open');
+      document.querySelectorAll('.faq').forEach(function(f) { f.classList.remove('open'); });
+      if (!was) item.classList.add('open');
+    });
+  });
+
+  // ── 8. COUNTDOWN TIMER (main urgency block) ──
+  (function initCountdown() {
+    var KEY = 'met30d_v2_end';
+    var end = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (!end || end < Date.now()) {
+      end = Date.now() + 7 * 24 * 60 * 60 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+    function p(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      var diff = Math.max(0, end - Date.now());
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor(diff % 86400000 / 3600000);
+      var m = Math.floor(diff % 3600000 / 60000);
+      var s = Math.floor(diff % 60000 / 1000);
+      var dEl = document.getElementById('cd-d');
+      var hEl = document.getElementById('cd-h');
+      var mEl = document.getElementById('cd-m');
+      var sEl = document.getElementById('cd-s');
+      if (dEl) dEl.textContent = p(d);
+      if (hEl) hEl.textContent = p(h);
+      if (mEl) mEl.textContent = p(m);
+      if (sEl) sEl.textContent = p(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ── 8B. ANNOUNCE BAR COUNTDOWN — always "almost ending" ──
+  (function initAnnounceCountdown() {
+    var el = document.getElementById('ann-cd');
+    if (!el) return;
+    // Start at a random "almost done" time: 4–12 minutes
+    var KEY = 'met30d_ann_end';
+    var end = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (!end || end < Date.now()) {
+      var mins = Math.floor(Math.random() * 8) + 4; // 4 to 12 min
+      end = Date.now() + mins * 60 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+    function p(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      var diff = end - Date.now();
+      if (diff <= 0) {
+        // Reset to 3–6 minutes when it hits zero
+        var reset = Math.floor(Math.random() * 3 + 3) * 60 * 1000;
+        end = Date.now() + reset;
+        localStorage.setItem(KEY, end);
+        diff = reset;
+      }
+      var m = Math.floor(diff / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      el.textContent = '00:' + p(m) + ':' + p(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ── 9. SALES TOAST ──
+  (function initSalesToast() {
+    var toast = document.getElementById('sales-toast');
+    var nameEl = document.getElementById('st-name');
+    var timeEl = document.getElementById('st-time');
+    if (!toast) return;
+
+    var names = [
+      "Pedro do Cazenga", "Maria do Kilamba", "João de Benguela",
+      "Ana de Talatona", "Carlos do Huambo", "Sofia de Viana",
+      "Rui de Benguela", "Marta do Lubango", "José do Kinaxixi",
+      "Joana do Patriota"
+    ];
+    var times = ["há 1 minuto", "agora mesmo", "há 3 minutos", "há 2 minutos", "há 5 minutos"];
+
+    function showToast() {
+      nameEl.textContent = names[Math.floor(Math.random() * names.length)];
+      timeEl.textContent = times[Math.floor(Math.random() * times.length)];
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 5000);
+    }
+
+    setTimeout(function() {
+      showToast();
+      setInterval(showToast, 12000 + Math.random() * 8000);
+    }, 4000);
+  })();
+
+  // ── 10. 3D TILT ON BENEFIT CARDS ──
+  (function initTilt() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    document.querySelectorAll('.benefit, .path-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = this.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        var rotateX = (0.5 - y) * 6;
+        var rotateY = (x - 0.5) * 6;
+        this.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    });
+  })();
+
+  // ── 11. SCROLL PROGRESS BAR (repurposed as page progress — updated by page system) ──
+  // Updated by initPageSystem below
+
+  // ── 12 & 13. REPLACED BY PAGE SYSTEM BELOW ──
+
+  // ── 14. HERO LIVE COUNTER ANIMATION ──
+  (function initHeroCounter() {
+    var el = document.getElementById('hero-counter');
+    if (!el) return;
+    var target = 500;
+    var duration = 2000;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + (progress >= 1 ? '+' : '');
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    setTimeout(function() { requestAnimationFrame(step); }, 600);
+  })();
+
+})();
+
+// ══════════════════════════════════════
+// PAGE NAVIGATION SYSTEM
+// ══════════════════════════════════════
+(function initPageSystem() {
+  var slides      = document.querySelectorAll('.page-slide');
+  var total       = slides.length;
+  var current     = 0;
+  var prevBtn     = document.getElementById('page-prev');
+  var nextBtn     = document.getElementById('page-next');
+  var counterEl   = document.getElementById('page-counter');
+  var dotsWrap    = document.getElementById('page-dots-nav');
+  var progressBar = document.getElementById('progress-bar');
+
+  var pageLabels = [
+    'Início', 'O Problema', 'A História', 'O Método',
+    'Benefícios', 'A Oferta', 'Resultados', 'Dúvidas', 'A Decisão'
+  ];
+
+  // Build dots
+  for (var i = 0; i < total; i++) {
+    (function(idx) {
+      var dot = document.createElement('button');
+      dot.className = 'pdot' + (idx === 0 ? ' active' : '');
+      dot.title = pageLabels[idx] || ('Página ' + (idx + 1));
+      dot.addEventListener('click', function() { goTo(idx); });
+      dotsWrap.appendChild(dot);
+    })(i);
+  }
+
+  function revealPage(slide) {
+    slide.querySelectorAll('.reveal-el').forEach(function(el) {
+      el.classList.remove('visible');
+    });
+    setTimeout(function() {
+      slide.querySelectorAll('.reveal-el').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    }, 80);
+  }
+
+  function updateUI() {
+    // Counter
+    counterEl.textContent = pageLabels[current] + ' — ' + (current + 1) + ' / ' + total;
+
+    // Dots
+    dotsWrap.querySelectorAll('.pdot').forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+
+    // Prev button
+    prevBtn.classList.toggle('hidden', current === 0);
+
+    // Next button — last page becomes CTA
+    if (current === total - 1) {
+      nextBtn.textContent = '🟢 Comprar Agora';
+      nextBtn.classList.add('is-cta');
+      nextBtn.onclick = function() {
+        if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: 'Método 30 Dias', value: 2500, currency: 'AOA' });
+        window.open('https://kiki.ao/6epe2gem', '_blank');
+      };
+    } else {
+      nextBtn.textContent = 'Próximo →';
+      nextBtn.classList.remove('is-cta');
+      nextBtn.onclick = function() { goTo(current + 1); };
+    }
+
+    // Progress bar = page progress
+    var pct = (current / (total - 1)) * 100;
+    if (progressBar) progressBar.style.width = pct + '%';
+
+    // Scroll to top of page content
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function goTo(index) {
+    if (index < 0 || index >= total || index === current) return;
+    slides[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    revealPage(slides[current]);
+    updateUI();
+
+    // Re-trigger counters and carousel on pages that need it
+    if (current === 6) {
+      // Resultados page — trigger counters
+      var evt = new Event('scroll');
+      document.querySelector('.stats') && document.querySelector('.stats').dispatchEvent(evt);
+    }
+  }
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+  // Expose globally
+  window.pageGoTo = goTo;
+  window.pageNext = function() { goTo(current + 1); };
+
+  // Initial reveal page 1
+  revealPage(slides[0]);
+  updateUI();
+
+  // Keyboard nav
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(current - 1);
+  });
+})();
+
+
+// ── PAIN CARDS INTERACTION (global) ──
+var painChecked = 0;
+var painTotal = 7;
+function togglePain(card) {
+  var was = card.classList.contains('checked');
+  card.classList.toggle('checked');
+  painChecked += was ? -1 : 1;
+  var wrap = document.getElementById('pain-counter-wrap');
+  var fill = document.getElementById('pain-counter-fill');
+  var countEl = document.getElementById('pain-count');
+  var msgEl = document.getElementById('pain-msg');
+  if (!wrap) return;
+  wrap.style.display = 'block';
+  fill.style.width = ((painChecked / painTotal) * 100) + '%';
+  countEl.textContent = painChecked;
+  var msgs = [
+    'clica nas que se aplicam a ti.',
+    'Já estás a reconhecer o padrão.',
+    'Isto é mais comum do que pensas.',
+    'O problema é o sistema, não tu.',
+    'Claramente precisas de um método.',
+    'Exactamente para isso foi criado.',
+    'Este método foi criado para ti.',
+    'Este método foi feito a pensar em ti. 👆'
+  ];
+  msgEl.textContent = msgs[Math.min(painChecked, msgs.length - 1)];
+}
+</script>
+
+<!-- Rastreamento de Cliques de Compra -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Todos os links que vão para o checkout
+  var botoesCompra = document.querySelectorAll('a[href*="kiki.ao"]');
+  
+  botoesCompra.forEach(function(botao) {
+    botao.addEventListener('click', function() {
+      // Dispara evento de Início de Checkout
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Método 30 Dias Sem Desculpas',
+        value: 2500,
+        currency: 'AOA'
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

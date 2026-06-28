@@ -1,0 +1,16 @@
+{
+  "name": "30-dias-sem-desculpas",
+  "version": "1.0.0",
+  "description": "Landing page + WhatsApp Business API webhook",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "vercel": "^39.0.0"
+  }
+}
