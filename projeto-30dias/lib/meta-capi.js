@@ -6,7 +6,7 @@
  * (o mesmo id tem de ser usado no Pixel e na CAPI para o mesmo evento).
  *
  * Variáveis de ambiente necessárias (configurar no Vercel):
- *   META_PIXEL_ID      → ID do pixel  (ex: 1727272961624840)
+ *   META_PIXEL_ID      → ID do pixel  (ex: 1536891164848719)
  *   META_CAPI_TOKEN    → Token de acesso da API de Conversões (SECRETO)
  *   META_TEST_EVENT_CODE (opcional) → código de teste do Events Manager
  *
@@ -54,7 +54,7 @@ export async function sendMetaEvent({
 } = {}) {
   // O pixel ID é público (já está no index.html), por isso tem valor por omissão.
   // O TOKEN é secreto e vem SEMPRE de variável de ambiente — nunca fica no código.
-  const PIXEL_ID = process.env.META_PIXEL_ID || '1727272961624840';
+  const PIXEL_ID = process.env.META_PIXEL_ID || '1536891164848719';
   const TOKEN    = process.env.META_CAPI_TOKEN;
 
   // Sem credenciais → não rebenta a app, apenas avisa e ignora.

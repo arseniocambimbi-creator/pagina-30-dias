@@ -128,13 +128,13 @@ Eventos enviados: **PageView**, **InitiateCheckout** (navegador → `/api/capi`)
 ### Variáveis de ambiente (adicionar no Vercel)
 
 ```bash
-vercel env add META_PIXEL_ID     # 1727272961624840 (opcional — já é o valor por omissão)
+vercel env add META_PIXEL_ID     # 1536891164848719 (opcional — já é o valor por omissão)
 vercel env add META_CAPI_TOKEN   # token da API de Conversões (SECRETO)
 ```
 
 | Variável          | Onde encontrar                                                        |
 |-------------------|----------------------------------------------------------------------|
-| `META_PIXEL_ID`   | Events Manager → o teu conjunto de dados → ID (já é `1727272961624840` no código) |
+| `META_PIXEL_ID`   | Events Manager → o teu conjunto de dados → ID (já é `1536891164848719` no código) |
 | `META_CAPI_TOKEN` | Events Manager → Definições → **API de Conversões → Gerar token de acesso** |
 
 > ⚠️ **Nunca** ponhas o token no código nem no HTML — só em variável de ambiente.
