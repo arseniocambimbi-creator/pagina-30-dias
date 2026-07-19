@@ -11,7 +11,10 @@
  *   ZAPI_CLIENT_TOKEN → Client-Token de segurança Z-API (opcional mas recomendado)
  *   WA_VERIFY_TOKEN   → Token de verificação do webhook (defines tu)
  *   ACCESS_LINK       → Link do produto
+ *   META_PIXEL_ID / META_CAPI_TOKEN → API de Conversões (evento Purchase)
  */
+
+import { sendMetaEvent } from '../lib/meta-capi.js';
 
 const ZAPI_INSTANCE_ID  = process.env.ZAPI_INSTANCE_ID;
 const ZAPI_TOKEN        = process.env.ZAPI_TOKEN;
@@ -125,6 +128,27 @@ export default async function handler(req, res) {
       console.log(`[ZAPI] Enviando mensagem para ${to} (${name || 'sem nome'})`);
       const result = await sendMessage(to, message);
       console.log('[ZAPI] Resposta Z-API:', JSON.stringify(result));
+
+      // ── API de Conversões: evento Purchase (compra confirmada) ──
+      // Não bloqueia o envio da mensagem se falhar.
+      const email = payload?.customer?.email || payload?.email || payload?.data?.buyer?.email;
+      const value = Number(
+        payload?.value ?? payload?.amount ?? payload?.data?.purchase?.price?.value ?? 2500
+      );
+      const currency = payload?.currency || payload?.data?.purchase?.price?.currency_value || 'AOA';
+      const eventId  = payload?.order_id || payload?.transaction_id || payload?.id || `purchase_${to}_${Date.now()}`;
+
+      try {
+        await sendMetaEvent({
+          eventName:   'Purchase',
+          eventId:     String(eventId),
+          actionSource: 'website',
+          userData:    { phone: to, email },
+          customData:  { value, currency, content_name: 'Método 30 Dias Sem Desculpas' },
+        });
+      } catch (capiErr) {
+        console.error('[CAPI] Purchase falhou:', capiErr.message);
+      }
 
       return res.status(200).json({ success: true, zapiResponse: result });
 

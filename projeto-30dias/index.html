@@ -1171,7 +1171,43 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2329686677564453');
-fbq('track', 'PageView');
+
+// ── Helper: dispara no Pixel + API de Conversões com o MESMO event_id ──
+// O Meta deduplica os dois envios pelo event_id, por isso nunca conta a dobrar.
+window.metaTrack = function (eventName, customData) {
+  var eventId = (self.crypto && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : eventName + '_' + Date.now() + '_' + Math.random().toString(16).slice(2);
+
+  // 1) Pixel (navegador)
+  if (typeof fbq !== 'undefined') {
+    fbq('track', eventName, customData || {}, { eventID: eventId });
+  }
+
+  // 2) API de Conversões (servidor) — mesmo event_id
+  try {
+    var getCookie = function (n) {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]+)'));
+      return m ? decodeURIComponent(m[1]) : undefined;
+    };
+    fetch('/api/capi', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true,
+      body: JSON.stringify({
+        event_name: eventName,
+        event_id: eventId,
+        event_source_url: location.href,
+        custom_data: customData || {},
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc')
+      })
+    }).catch(function () { /* falha silenciosa: o Pixel já cobre */ });
+  } catch (e) { /* ignora */ }
+};
+
+// PageView inicial (Pixel + CAPI)
+window.metaTrack('PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2329686677564453&ev=PageView&noscript=1"
@@ -2547,7 +2583,7 @@ src="https://www.facebook.com/tr?id=2329686677564453&ev=PageView&noscript=1"
       nextBtn.textContent = '🟢 Comprar Agora';
       nextBtn.classList.add('is-cta');
       nextBtn.onclick = function() {
-        if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: 'Método 30 Dias', value: 2500, currency: 'AOA' });
+        if (window.metaTrack) window.metaTrack('InitiateCheckout', { content_name: 'Método 30 Dias', value: 2500, currency: 'AOA' });
         window.open('https://kiki.ao/6epe2gem', '_blank');
       };
     } else {
@@ -2636,8 +2672,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   botoesCompra.forEach(function(botao) {
     botao.addEventListener('click', function() {
-      // Dispara evento de Início de Checkout
-      fbq('track', 'InitiateCheckout', {
+      // Dispara evento de Início de Checkout (Pixel + API de Conversões)
+      if (window.metaTrack) window.metaTrack('InitiateCheckout', {
         content_name: 'Método 30 Dias Sem Desculpas',
         value: 2500,
         currency: 'AOA'

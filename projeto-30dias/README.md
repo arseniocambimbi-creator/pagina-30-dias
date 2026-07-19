@@ -116,6 +116,37 @@ ACCESS_LINK     = https://kiki.ao/6epe2gem
 
 ---
 
+## 📊 PASSO 3.5 — API de Conversões do Meta (CAPI)
+
+O Pixel (navegador) já está no `index.html`. A **API de Conversões** envia os
+mesmos eventos pelo **servidor**, recuperando os que o navegador perde. Os dois
+lados usam o **mesmo `event_id`**, por isso o Meta **deduplica** (não conta a dobrar).
+
+Eventos enviados: **PageView**, **InitiateCheckout** (navegador → `/api/capi`) e
+**Purchase** (a partir do webhook de pagamento em `api/whatsapp.js`).
+
+### Variáveis de ambiente (adicionar no Vercel)
+
+```bash
+vercel env add META_PIXEL_ID     # 2329686677564453
+vercel env add META_CAPI_TOKEN   # token da API de Conversões (SECRETO)
+```
+
+| Variável          | Onde encontrar                                                        |
+|-------------------|----------------------------------------------------------------------|
+| `META_PIXEL_ID`   | Events Manager → o teu conjunto de dados → ID (já é `2329686677564453`) |
+| `META_CAPI_TOKEN` | Events Manager → Definições → **API de Conversões → Gerar token de acesso** |
+
+> ⚠️ **Nunca** ponhas o token no código nem no HTML — só em variável de ambiente.
+> Para testar, cria também `META_TEST_EVENT_CODE` (Events Manager → **Testar eventos**).
+
+### Confirmar que funciona
+
+1. `curl https://teu-dominio.com/api/health` → deve mostrar `META_PIXEL_ID: true` e `META_CAPI_TOKEN: true`.
+2. Events Manager → **Testar eventos** → abre a página e clica em comprar → devem aparecer os eventos com origem **Servidor** e **Navegador**, marcados como *deduplicados*.
+
+---
+
 ## 🔗 PASSO 4 — Ligar a plataforma de pagamento
 
 Na plataforma onde está o teu produto (kiki.ao ou outra), configura o **webhook de compra** para:
@@ -164,6 +195,8 @@ curl -X POST https://teu-dominio.com/api/whatsapp \
 - [ ] Teste de compra real confirmado (mensagem chegou no WhatsApp)
 - [ ] Depoimentos reais substituídos na index.html
 - [ ] Pixel Meta instalado na index.html
+- [ ] API de Conversões: `META_PIXEL_ID` e `META_CAPI_TOKEN` no Vercel
+- [ ] Eventos deduplicados confirmados no "Testar eventos" do Events Manager
 - [ ] Google Analytics 4 instalado na index.html
 
 ---

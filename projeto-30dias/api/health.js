@@ -12,6 +12,8 @@ export default async function handler(req, res) {
     SUPABASE_URL:      !!process.env.SUPABASE_URL,
     SUPABASE_ANON_KEY: !!process.env.SUPABASE_ANON_KEY,
     AGENT_NAME:        !!process.env.AGENT_NAME,
+    META_PIXEL_ID:     !!process.env.META_PIXEL_ID,
+    META_CAPI_TOKEN:   !!process.env.META_CAPI_TOKEN,
   };
 
   // Variáveis obrigatórias para funcionamento completo
