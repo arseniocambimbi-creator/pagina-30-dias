@@ -1196,6 +1196,48 @@
       .vsl-frame { padding: 4px; border-radius: 13px; }
       .vsl-frame video { border-radius: 10px; }
     }
+
+    /* ── Depoimentos bloqueados (áudio + slideshow) ── */
+    .unlock-wrap { max-width: 360px; margin: 18px auto 6px; padding: 0 4px; }
+    .btn-unlock {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 17px 22px;
+      font-family: inherit; font-weight: 800; font-size: 16px; letter-spacing: .02em;
+      color: #1A1206; cursor: pointer;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      border: none; border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(245,197,66,.28), 0 0 0 1px rgba(245,197,66,.35);
+      transition: transform .15s ease, box-shadow .15s ease;
+      animation: unlockPulse 2.2s infinite;
+    }
+    .btn-unlock:active { transform: scale(.97); }
+    @keyframes unlockPulse {
+      0%,100% { box-shadow: 0 10px 30px rgba(245,197,66,.28), 0 0 0 0 rgba(245,197,66,.45); }
+      50%     { box-shadow: 0 10px 30px rgba(245,197,66,.38), 0 0 0 12px rgba(245,197,66,0); }
+    }
+    .unlock-stage {
+      position: relative; border-radius: 12px; overflow: hidden;
+      background: #020804; aspect-ratio: 9 / 16; max-height: 66vh; margin: 0 auto;
+    }
+    .unlock-stage img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: contain; opacity: 1; transition: opacity .45s ease;
+    }
+    .unlock-stage img.fading { opacity: 0; }
+    .unlock-progress {
+      height: 5px; margin-top: 10px; border-radius: 99px;
+      background: rgba(255,255,255,.12); overflow: hidden;
+    }
+    .unlock-progress > div {
+      height: 100%; width: 0%; border-radius: 99px;
+      background: linear-gradient(90deg, var(--gold), var(--green));
+      transition: width .3s linear;
+    }
+    .unlock-reveal { animation: revealCta .6s ease both; }
+    @keyframes revealCta {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -1335,6 +1377,23 @@ src="https://www.facebook.com/tr?id=1536891164848719&ev=PageView&noscript=1"
         </video>
       </div>
       <p class="vsl-caption">▶ <strong>Vê este vídeo</strong> antes de continuar — menos de 1 minuto</p>
+    </div>
+
+    <!-- ── DEPOIMENTOS BLOQUEADOS: áudio + slideshow ── -->
+    <div class="unlock-wrap" id="unlock-sec">
+      <button type="button" class="btn-unlock" id="unlock-btn">
+        🔓 DESBLOQUEAR DEPOIMENTOS REAIS
+      </button>
+      <div id="unlock-show" hidden>
+        <div class="vsl-frame">
+          <div class="unlock-stage">
+            <img id="unlock-img" src="/images/print3.jpeg" alt="Depoimento real de aluno do Método 30 Dias">
+          </div>
+        </div>
+        <div class="unlock-progress"><div id="unlock-bar"></div></div>
+        <p class="vsl-caption" id="unlock-caption">🎧 <strong>Ouve o áudio</strong> enquanto vês os resultados reais</p>
+        <audio id="unlock-audio" preload="metadata" src="/videos/vsl1.mp3"></audio>
+      </div>
     </div>
 
     <a href="https://pay.kursinha.com/c/6a2336a0d0cbc8fc6e870bb2" class="btn btn-pulse" target="_blank" rel="noopener" id="hero-cta">
@@ -2734,6 +2793,86 @@ document.addEventListener('DOMContentLoaded', function() {
       played = true;
       if (window.metaTrack) window.metaTrack('ViewContent', { content_name: 'VSL Método 30 Dias' });
     });
+  }
+});
+</script>
+
+<!-- Depoimentos bloqueados: áudio + slideshow → revela o botão comprar -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var sec     = document.getElementById('unlock-sec');
+  var btn     = document.getElementById('unlock-btn');
+  var show    = document.getElementById('unlock-show');
+  var img     = document.getElementById('unlock-img');
+  var bar     = document.getElementById('unlock-bar');
+  var caption = document.getElementById('unlock-caption');
+  var audio   = document.getElementById('unlock-audio');
+  var cta     = document.getElementById('hero-cta');
+  if (!sec || !btn || !audio || !cta) return;
+
+  var ctaMeta = cta.nextElementSibling && cta.nextElementSibling.classList.contains('btn-meta')
+    ? cta.nextElementSibling : null;
+
+  // Esconder o CTA do hero até desbloquear (só via JS: se o JS falhar, o CTA fica visível)
+  cta.style.display = 'none';
+  if (ctaMeta) ctaMeta.style.display = 'none';
+
+  var IMGS = ['print3','print4','print5','print6','print7','print8','print9']
+    .map(function(n){ return '/images/' + n + '.jpeg'; });
+  IMGS.forEach(function(src){ (new Image()).src = src; }); // pré-carregar
+
+  var revealed = false;
+  function revealCta() {
+    if (revealed) return;
+    revealed = true;
+    cta.style.display = '';
+    if (ctaMeta) ctaMeta.style.display = '';
+    cta.classList.add('unlock-reveal');
+    if (caption) caption.innerHTML = '✅ <strong>Depoimentos reais</strong> — o teu acesso está abaixo';
+    setTimeout(function(){ cta.scrollIntoView({ behavior:'smooth', block:'center' }); }, 650);
+  }
+
+  function setImage(i) {
+    var src = IMGS[Math.max(0, Math.min(i, IMGS.length - 1))];
+    if (img.getAttribute('src') === src) return;
+    img.classList.add('fading');
+    setTimeout(function(){ img.setAttribute('src', src); img.classList.remove('fading'); }, 220);
+  }
+
+  btn.addEventListener('click', function() {
+    btn.style.display = 'none';
+    show.hidden = false;
+    if (window.metaTrack) window.metaTrack('ViewContent', { content_name: 'Depoimentos Áudio' });
+
+    var p = audio.play();
+    if (p && p.catch) p.catch(function(){ fallbackSlideshow(); });
+
+    // Segurança máxima: revela o CTA passado (duração + 25s) mesmo que algo falhe
+    setTimeout(function(){ revealCta(); }, ((audio.duration || 90) + 25) * 1000);
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    if (!audio.duration) return;
+    var pct = (audio.currentTime / audio.duration) * 100;
+    if (bar) bar.style.width = pct.toFixed(1) + '%';
+    setImage(Math.floor((audio.currentTime / audio.duration) * IMGS.length));
+  });
+
+  audio.addEventListener('ended', revealCta);
+  audio.addEventListener('error', function(){ fallbackSlideshow(); });
+
+  // Sem áudio (falha de rede/ficheiro): passa as imagens em timer e liberta o CTA
+  var fbStarted = false;
+  function fallbackSlideshow() {
+    if (fbStarted || revealed) return;
+    fbStarted = true;
+    var i = 0;
+    var t = setInterval(function() {
+      i++;
+      if (bar) bar.style.width = ((i / IMGS.length) * 100).toFixed(0) + '%';
+      if (i >= IMGS.length) { clearInterval(t); revealCta(); return; }
+      setImage(i);
+    }, 3000);
   }
 });
 </script>
