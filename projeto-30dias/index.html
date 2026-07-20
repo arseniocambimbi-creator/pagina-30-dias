@@ -1159,6 +1159,41 @@
       color: rgba(255,255,255,.28); margin-bottom: 0; padding: 4px 0;
     }
     .page-label-dark { color: var(--muted); }
+
+    /* ── VSL (vídeo de vendas) ── */
+    .vsl-wrap {
+      max-width: 680px;
+      margin: 26px auto 6px;
+      padding: 0 4px;
+    }
+    .vsl-frame {
+      position: relative;
+      border-radius: 16px;
+      padding: 6px;
+      background: linear-gradient(135deg, rgba(52,216,122,.55), rgba(245,197,66,.35), rgba(52,216,122,.25));
+      box-shadow: 0 18px 50px rgba(0,0,0,.45), 0 0 0 1px rgba(52,216,122,.12);
+    }
+    .vsl-frame video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      background: #020804;
+      object-fit: contain;
+    }
+    .vsl-caption {
+      margin-top: 12px;
+      font-size: 13.5px;
+      letter-spacing: .02em;
+      color: rgba(255,255,255,.65);
+      text-align: center;
+    }
+    .vsl-caption strong { color: var(--green); }
+    @media (max-width: 560px) {
+      .vsl-wrap { margin-top: 20px; }
+      .vsl-frame { padding: 4px; border-radius: 13px; }
+      .vsl-frame video { border-radius: 10px; }
+    }
   </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -1283,6 +1318,22 @@ src="https://www.facebook.com/tr?id=1536891164848719&ev=PageView&noscript=1"
       Não é quanto ganhas. É quanto deixas <strong>evaporar</strong> todos os meses.<br>
       <strong>O Método dos 30 Dias</strong> mostra-te como ficar com uma parte real do teu dinheiro — e construir uma reserva de <strong>5 a 25 milhões em 3 anos</strong>, conforme o teu rendimento.
     </p>
+
+    <!-- ── VSL — Vídeo de Vendas ── -->
+    <div class="vsl-wrap" id="vsl">
+      <div class="vsl-frame">
+        <video
+          id="vsl-video"
+          controls
+          playsinline
+          preload="metadata"
+          controlslist="nodownload">
+          <source src="/videos/vsl.mp4" type="video/mp4">
+          O teu navegador não suporta vídeo HTML5.
+        </video>
+      </div>
+      <p class="vsl-caption">▶ <strong>Vê este vídeo</strong> antes de continuar — menos de 3 minutos</p>
+    </div>
 
     <a href="https://kiki.ao/6epe2gem" class="btn btn-pulse" target="_blank" rel="noopener" id="hero-cta">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -2661,6 +2712,28 @@ function togglePain(card) {
   ];
   msgEl.textContent = msgs[Math.min(painChecked, msgs.length - 1)];
 }
+</script>
+
+<!-- VSL: esconder se o ficheiro ainda não existir + rastrear play -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var vsl = document.getElementById('vsl');
+  var vid = document.getElementById('vsl-video');
+  if (vsl && vid) {
+    // Se /videos/vsl.mp4 não existir (404), esconde a secção sem partir o layout
+    vid.addEventListener('error', function() { vsl.style.display = 'none'; }, true);
+    var src = vid.querySelector('source');
+    if (src) src.addEventListener('error', function() { vsl.style.display = 'none'; });
+
+    // Rastrear o primeiro play (Pixel + CAPI, com deduplicação)
+    var played = false;
+    vid.addEventListener('play', function() {
+      if (played) return;
+      played = true;
+      if (window.metaTrack) window.metaTrack('ViewContent', { content_name: 'VSL Método 30 Dias' });
+    });
+  }
+});
 </script>
 
 <!-- Rastreamento de Cliques de Compra -->
