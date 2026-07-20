@@ -100,7 +100,7 @@ vercel env add AGENT_NAME
 | `ZAPI_CLIENT_TOKEN` | Client-Token Z-API (opcional) |
 | `SUPABASE_URL` | URL do projecto Supabase |
 | `SUPABASE_ANON_KEY` | Chave anon Supabase |
-| `ACCESS_LINK` | `https://kiki.ao/6epe2gem` |
+| `ACCESS_LINK` | `https://pay.kursinha.com/c/6a2336a0d0cbc8fc6e870bb2` |
 | `AGENT_NAME` | Nome do agente (ex: `Marta`) |
 | `WA_VERIFY_TOKEN` | Token de verificação webhook |
 | `LINK_PLANILHA` | Link da planilha (ou deixar vazio = usa ACCESS_LINK) |
