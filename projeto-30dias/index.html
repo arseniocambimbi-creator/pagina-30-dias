@@ -1251,6 +1251,37 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1536891164848719');
 
+// ── Param builder: cobertura/qualidade de fbc e fbp (cookies de 1.ª parte) ──
+// Faz o que o suplemento oficial do Meta faz: persiste o fbclid do anúncio
+// como cookie _fbc e cria _fbp próprio se o pixel for bloqueado.
+(function () {
+  function getC(n) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]+)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function setC(n, v) {
+    var exp = new Date(Date.now() + 90 * 24 * 3600 * 1000).toUTCString();
+    var c = n + '=' + encodeURIComponent(v) + '; expires=' + exp + '; path=/; SameSite=Lax';
+    var host = location.hostname;
+    if (host.indexOf('.') !== -1 && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
+      c += '; domain=.' + host.split('.').slice(-2).join('.'); // cobre www e apex
+    }
+    document.cookie = c;
+  }
+  try {
+    // _fbc: novo clique de anúncio (fbclid) → guarda/atualiza o cookie
+    var fbclid = new URLSearchParams(location.search).get('fbclid');
+    if (fbclid) {
+      var atual = getC('_fbc');
+      if (!atual || atual.indexOf(fbclid) === -1) setC('_fbc', 'fb.1.' + Date.now() + '.' + fbclid);
+    }
+    // _fbp: se o pixel for bloqueado e não o criar, criamos no mesmo formato
+    setTimeout(function () {
+      if (!getC('_fbp')) setC('_fbp', 'fb.1.' + Date.now() + '.' + Math.floor(Math.random() * 1e10));
+    }, 2000);
+  } catch (e) { /* nunca bloquear a página */ }
+})();
+
 // ── Helper: dispara no Pixel + API de Conversões com o MESMO event_id ──
 // O Meta deduplica os dois envios pelo event_id, por isso nunca conta a dobrar.
 window.metaTrack = function (eventName, customData) {
