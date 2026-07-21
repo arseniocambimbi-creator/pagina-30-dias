@@ -15,6 +15,7 @@
  *   }
  */
 
+import crypto from 'node:crypto';
 import { sendMetaEvent, getClientIp, parseCookie } from '../lib/meta-capi.js';
 
 // Só permitimos estes eventos vindos do navegador.
@@ -37,6 +38,10 @@ export default async function handler(req, res) {
     const fbp = body.fbp || parseCookie(cookieHeader, '_fbp');
     const fbc = body.fbc || parseCookie(cookieHeader, '_fbc');
 
+    // event_id é obrigatório para o Meta (deduplicação/atribuição).
+    // Se o navegador não enviar, geramos um — nunca sai evento sem event_id.
+    const eventId = body.event_id || crypto.randomUUID();
+
     // Geolocalização real do visitante — headers que o Vercel deriva do IP
     const geoHeader = h => {
       const v = req.headers[h];
@@ -45,7 +50,7 @@ export default async function handler(req, res) {
 
     const result = await sendMetaEvent({
       eventName,
-      eventId:        body.event_id,
+      eventId,
       eventSourceUrl: body.event_source_url || req.headers.referer,
       actionSource:   'website',
       userData: {
