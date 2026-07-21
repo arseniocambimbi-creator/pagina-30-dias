@@ -1269,6 +1269,25 @@ window.metaTrack = function (eventName, customData) {
       var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]+)'));
       return m ? decodeURIComponent(m[1]) : undefined;
     };
+
+    // ID anónimo persistente (melhora a atribuição sem dados pessoais)
+    var eid;
+    try {
+      eid = localStorage.getItem('mw_eid');
+      if (!eid) {
+        eid = (self.crypto && crypto.randomUUID) ? crypto.randomUUID()
+            : 'eid_' + Date.now() + '_' + Math.random().toString(16).slice(2);
+        localStorage.setItem('mw_eid', eid);
+      }
+    } catch (e2) { /* localStorage indisponível */ }
+
+    // fbc: se o cookie _fbc não existir mas o URL tiver fbclid (veio de anúncio), constrói-o
+    var fbc = getCookie('_fbc');
+    if (!fbc) {
+      var fbclid = new URLSearchParams(location.search).get('fbclid');
+      if (fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+    }
+
     fetch('/api/capi', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -1279,7 +1298,8 @@ window.metaTrack = function (eventName, customData) {
         event_source_url: location.href,
         custom_data: customData || {},
         fbp: getCookie('_fbp'),
-        fbc: getCookie('_fbc')
+        fbc: fbc,
+        external_id: eid
       })
     }).catch(function () { /* falha silenciosa: o Pixel já cobre */ });
   } catch (e) { /* ignora */ }

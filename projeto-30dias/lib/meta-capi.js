@@ -40,7 +40,8 @@ function hashPhone(phone) {
  * @param {string}  [opts.eventId]        id de deduplicação (o mesmo do Pixel)
  * @param {string}  [opts.eventSourceUrl] URL onde o evento aconteceu
  * @param {string}  [opts.actionSource]   'website' (padrão) | 'system_generated'
- * @param {Object}  [opts.userData]       { email, phone, fbp, fbc, clientIp, userAgent }
+ * @param {Object}  [opts.userData]       { email, phone, fbp, fbc, clientIp, userAgent,
+ *                                          city, state, zip, country, externalId }
  * @param {Object}  [opts.customData]     { value, currency, content_name, ... }
  * @returns {Promise<{ok: boolean, status: number, body: any}>}
  */
@@ -68,6 +69,24 @@ export async function sendMetaEvent({
   const ph = hashPhone(userData.phone);
   if (em) user_data.em = [em];
   if (ph) user_data.ph = [ph];
+
+  // Geolocalização real do visitante (derivada do IP pelo Vercel) — hasheada,
+  // normalizada como o Meta exige: minúsculas, sem espaços nem pontuação.
+  const geoNorm = v => v ? String(v).normalize('NFD').replace(/[̀-ͯ]/g, '')
+                                    .toLowerCase().replace(/[^a-z0-9]/g, '') : undefined;
+  const ct = hash(geoNorm(userData.city));
+  const st = hash(geoNorm(userData.state));
+  const zp = hash(geoNorm(userData.zip));
+  const country = hash(geoNorm(userData.country)); // código de 2 letras, ex: "ao"
+  if (ct)      user_data.ct      = [ct];
+  if (st)      user_data.st      = [st];
+  if (zp)      user_data.zp      = [zp];
+  if (country) user_data.country = [country];
+
+  // ID anónimo próprio (melhora a atribuição sem dados pessoais)
+  const eid = hash(userData.externalId);
+  if (eid) user_data.external_id = [eid];
+
   if (userData.fbp)       user_data.fbp = userData.fbp;
   if (userData.fbc)       user_data.fbc = userData.fbc;
   if (userData.clientIp)  user_data.client_ip_address  = userData.clientIp;

@@ -37,6 +37,12 @@ export default async function handler(req, res) {
     const fbp = body.fbp || parseCookie(cookieHeader, '_fbp');
     const fbc = body.fbc || parseCookie(cookieHeader, '_fbc');
 
+    // Geolocalização real do visitante — headers que o Vercel deriva do IP
+    const geoHeader = h => {
+      const v = req.headers[h];
+      try { return v ? decodeURIComponent(String(v)) : undefined; } catch { return v; }
+    };
+
     const result = await sendMetaEvent({
       eventName,
       eventId:        body.event_id,
@@ -45,8 +51,12 @@ export default async function handler(req, res) {
       userData: {
         fbp,
         fbc,
-        clientIp:  getClientIp(req),
-        userAgent: req.headers['user-agent'],
+        clientIp:   getClientIp(req),
+        userAgent:  req.headers['user-agent'],
+        city:       geoHeader('x-vercel-ip-city'),
+        state:      geoHeader('x-vercel-ip-country-region'),
+        country:    geoHeader('x-vercel-ip-country'),
+        externalId: body.external_id,
       },
       customData: body.custom_data || {},
     });
