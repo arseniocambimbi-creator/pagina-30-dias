@@ -2640,6 +2640,13 @@ src="https://www.facebook.com/tr?id=1536891164848719&ev=PageView&noscript=1"
   var dotsWrap    = document.getElementById('page-dots-nav');
   var progressBar = document.getElementById('progress-bar');
 
+  // Gate: só se pode avançar da página do vídeo depois do áudio (meio) desbloquear.
+  window.__proceedUnlocked = false;
+  window.unlockProceed = function() {
+    window.__proceedUnlocked = true;
+    if (current === 0) nextBtn.classList.remove('hidden');
+  };
+
   var pageLabels = [
     'Início', 'O Problema', 'A História', 'O Método',
     'Benefícios', 'A Oferta', 'Resultados', 'Dúvidas', 'A Decisão'
@@ -2693,6 +2700,13 @@ src="https://www.facebook.com/tr?id=1536891164848719&ev=PageView&noscript=1"
       nextBtn.onclick = function() { goTo(current + 1); };
     }
 
+    // Gate: na página do vídeo, esconder "Próximo" até o áudio desbloquear
+    if (current === 0 && !window.__proceedUnlocked) {
+      nextBtn.classList.add('hidden');
+    } else {
+      nextBtn.classList.remove('hidden');
+    }
+
     // Progress bar = page progress
     var pct = (current / (total - 1)) * 100;
     if (progressBar) progressBar.style.width = pct + '%';
@@ -2703,6 +2717,8 @@ src="https://www.facebook.com/tr?id=1536891164848719&ev=PageView&noscript=1"
 
   function goTo(index) {
     if (index < 0 || index >= total || index === current) return;
+    // Gate: não deixa avançar da página do vídeo (pontos/teclado) até desbloquear
+    if (!window.__proceedUnlocked && current === 0 && index > current) return;
     slides[current].classList.remove('active');
     current = index;
     slides[current].classList.add('active');
@@ -2718,7 +2734,8 @@ src="https://www.facebook.com/tr?id=1536891164848719&ev=PageView&noscript=1"
   }
 
   prevBtn.addEventListener('click', function() { goTo(current - 1); });
-  nextBtn.addEventListener('click', function() { goTo(current + 1); });
+  // nextBtn: o clique é gerido pelo onclick definido em updateUI()
+  // (um addEventListener aqui duplicaria o handler e avançava 2 páginas por clique)
 
   // Expose globally
   window.pageGoTo = goTo;
@@ -2819,6 +2836,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ctaMeta) ctaMeta.style.display = '';
     cta.classList.add('unlock-reveal');
     if (caption) caption.innerHTML = '✅ <strong>Depoimentos reais</strong> — o teu acesso está abaixo';
+    if (window.unlockProceed) window.unlockProceed(); // liberta o botão "Próximo"
     if (withScroll) setTimeout(function(){ cta.scrollIntoView({ behavior:'smooth', block:'center' }); }, 650);
   }
 
