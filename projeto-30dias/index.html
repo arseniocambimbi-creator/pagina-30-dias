@@ -2822,14 +2822,14 @@ document.addEventListener('DOMContentLoaded', function() {
   IMGS.forEach(function(src){ (new Image()).src = src; }); // pré-carregar
 
   var revealed = false;
-  function revealCta() {
+  function revealCta(withScroll) {
     if (revealed) return;
     revealed = true;
     cta.style.display = '';
     if (ctaMeta) ctaMeta.style.display = '';
     cta.classList.add('unlock-reveal');
     if (caption) caption.innerHTML = '✅ <strong>Depoimentos reais</strong> — o teu acesso está abaixo';
-    setTimeout(function(){ cta.scrollIntoView({ behavior:'smooth', block:'center' }); }, 650);
+    if (withScroll) setTimeout(function(){ cta.scrollIntoView({ behavior:'smooth', block:'center' }); }, 650);
   }
 
   function setImage(i) {
@@ -2847,8 +2847,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var p = audio.play();
     if (p && p.catch) p.catch(function(){ fallbackSlideshow(); });
 
-    // Segurança máxima: revela o CTA passado (duração + 25s) mesmo que algo falhe
-    setTimeout(function(){ revealCta(); }, ((audio.duration || 90) + 25) * 1000);
+    // Segurança máxima: revela o CTA passado (meio da duração + 25s) mesmo que algo falhe
+    setTimeout(function(){ revealCta(false); }, (((audio.duration || 90) / 2) + 25) * 1000);
   });
 
   audio.addEventListener('timeupdate', function() {
@@ -2856,9 +2856,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var pct = (audio.currentTime / audio.duration) * 100;
     if (bar) bar.style.width = pct.toFixed(1) + '%';
     setImage(Math.floor((audio.currentTime / audio.duration) * IMGS.length));
+    // Revela o CTA a meio do áudio (o slideshow continua até ao fim)
+    if (audio.currentTime >= audio.duration / 2) revealCta(false);
   });
 
-  audio.addEventListener('ended', revealCta);
+  audio.addEventListener('ended', function(){ revealCta(true); });
   audio.addEventListener('error', function(){ fallbackSlideshow(); });
 
   // Sem áudio (falha de rede/ficheiro): passa as imagens em timer e liberta o CTA
@@ -2870,7 +2872,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var t = setInterval(function() {
       i++;
       if (bar) bar.style.width = ((i / IMGS.length) * 100).toFixed(0) + '%';
-      if (i >= IMGS.length) { clearInterval(t); revealCta(); return; }
+      if (i >= Math.ceil(IMGS.length / 2)) revealCta(false);
+      if (i >= IMGS.length) { clearInterval(t); return; }
       setImage(i);
     }, 3000);
   }
