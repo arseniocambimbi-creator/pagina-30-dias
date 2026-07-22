@@ -53,14 +53,33 @@ export async function sendMetaEvent({
   userData = {},
   customData = {},
 } = {}) {
-  // O pixel ID é público (já está no index.html), por isso tem valor por omissão.
-  // O TOKEN é secreto e vem SEMPRE de variável de ambiente — nunca fica no código.
-  const PIXEL_ID = process.env.META_PIXEL_ID || '1536891164848719';
-  const TOKEN    = process.env.META_CAPI_TOKEN;
 
-  // Sem credenciais → não rebenta a app, apenas avisa e ignora.
-  if (!PIXEL_ID || !TOKEN) {
-    console.warn('[CAPI] META_PIXEL_ID ou META_CAPI_TOKEN em falta — evento ignorado:', eventName);
+  // ── Construir lista de pixels configurados ──
+  // Formato META_PIXELS: "pixelId1:token1,pixelId2:token2"
+  // Fallback: META_PIXEL_ID + META_CAPI_TOKEN (pixel único, retrocompatível)
+  const pixels = [];
+
+  if (process.env.META_PIXELS) {
+    for (const entry of process.env.META_PIXELS.split(',')) {
+      const [id, token] = entry.trim().split(':');
+      if (id && token) pixels.push({ id, token });
+    }
+  }
+
+  // Fallback: variáveis originais (pixel único)
+  if (pixels.length === 0) {
+    const id    = process.env.META_PIXEL_ID || '1536891164848719';
+    const token = process.env.META_CAPI_TOKEN;
+    if (id && token) pixels.push({ id, token });
+  }
+
+  // Segundo pixel individual (se configurado separadamente)
+  if (process.env.META_PIXEL_ID_2 && process.env.META_CAPI_TOKEN_2) {
+    pixels.push({ id: process.env.META_PIXEL_ID_2, token: process.env.META_CAPI_TOKEN_2 });
+  }
+
+  if (pixels.length === 0) {
+    console.warn('[CAPI] Nenhum pixel configurado — evento ignorado:', eventName);
     return { ok: false, status: 0, body: { skipped: 'missing_env' } };
   }
 
@@ -72,7 +91,7 @@ export async function sendMetaEvent({
 
   // Geolocalização real do visitante (derivada do IP pelo Vercel) — hasheada,
   // normalizada como o Meta exige: minúsculas, sem espaços nem pontuação.
-  const geoNorm = v => v ? String(v).normalize('NFD').replace(/[̀-ͯ]/g, '')
+  const geoNorm = v => v ? String(v).normalize('NFD').replace(/[\u0300-\u036f]/g, '')
                                     .toLowerCase().replace(/[^a-z0-9]/g, '') : undefined;
   const ct = hash(geoNorm(userData.city));
   const st = hash(geoNorm(userData.state));
@@ -107,25 +126,33 @@ export async function sendMetaEvent({
     payload.test_event_code = process.env.META_TEST_EVENT_CODE;
   }
 
-  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PIXEL_ID}/events?access_token=${encodeURIComponent(TOKEN)}`;
+  // ── Enviar para TODOS os pixels em paralelo ──
+  const results = await Promise.allSettled(
+    pixels.map(async ({ id, token }) => {
+      const url = `https://graph.facebook.com/${GRAPH_VERSION}/${id}/events?access_token=${encodeURIComponent(token)}`;
+      try {
+        const res  = await fetch(url, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          console.error(`[CAPI] Erro Meta (pixel ${id}):`, res.status, JSON.stringify(body));
+        } else {
+          console.log(`[CAPI] Evento enviado (pixel ${id}):`, eventName, 'events_received=', body.events_received);
+        }
+        return { pixelId: id, ok: res.ok, status: res.status, body };
+      } catch (err) {
+        console.error(`[CAPI] Falha de rede (pixel ${id}):`, err.message);
+        return { pixelId: id, ok: false, status: 0, body: { error: err.message } };
+      }
+    })
+  );
 
-  try {
-    const res  = await fetch(url, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload),
-    });
-    const body = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      console.error('[CAPI] Erro Meta:', res.status, JSON.stringify(body));
-    } else {
-      console.log('[CAPI] Evento enviado:', eventName, 'events_received=', body.events_received);
-    }
-    return { ok: res.ok, status: res.status, body };
-  } catch (err) {
-    console.error('[CAPI] Falha de rede:', err.message);
-    return { ok: false, status: 0, body: { error: err.message } };
-  }
+  // Retorna sucesso se pelo menos um pixel recebeu o evento
+  const anyOk = results.some(r => r.status === 'fulfilled' && r.value.ok);
+  return { ok: anyOk, status: anyOk ? 200 : 502, body: { pixels: results.map(r => r.value || r.reason) } };
 }
 
 // ── Utilitários reutilizáveis pelos endpoints ──
