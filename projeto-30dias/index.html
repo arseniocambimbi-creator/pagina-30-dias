@@ -1285,6 +1285,77 @@ fbq('init', '1536891164848719');
 
 // ── Helper: dispara no Pixel + API de Conversões com o MESMO event_id ──
 // O Meta deduplica os dois envios pelo event_id, por isso nunca conta a dobrar.
+// Usa sendBeacon (fiável em page unload) + fetch como fallback + fila de retry.
+
+// Fila de eventos falhados — reenviados na próxima interação
+window._capiRetryQueue = [];
+
+window._capiGetCookie = function (n) {
+  var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]+)'));
+  return m ? decodeURIComponent(m[1]) : undefined;
+};
+
+window._capiGetEid = function () {
+  try {
+    var eid = localStorage.getItem('mw_eid');
+    if (!eid) {
+      eid = (self.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : 'eid_' + Date.now() + '_' + Math.random().toString(16).slice(2);
+      localStorage.setItem('mw_eid', eid);
+    }
+    return eid;
+  } catch (e) { return undefined; }
+};
+
+window._capiGetFbc = function () {
+  var fbc = window._capiGetCookie('_fbc');
+  if (!fbc) {
+    try {
+      var fbclid = new URLSearchParams(location.search).get('fbclid');
+      if (fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+    } catch (e) { /* ignora */ }
+  }
+  return fbc;
+};
+
+// Envia payload para a CAPI — sendBeacon primeiro, fetch como fallback
+window._capiSend = function (payload) {
+  var json = JSON.stringify(payload);
+  var sent = false;
+
+  // 1) sendBeacon — sobrevive a page unloads, mais fiável para analytics
+  if (navigator.sendBeacon) {
+    try {
+      sent = navigator.sendBeacon('/api/capi', new Blob([json], { type: 'application/json' }));
+    } catch (e) { sent = false; }
+  }
+
+  // 2) Fallback: fetch com keepalive
+  if (!sent) {
+    fetch('/api/capi', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true,
+      body: json
+    }).then(function (r) {
+      if (!r.ok) window._capiRetryQueue.push(payload);
+    }).catch(function () {
+      window._capiRetryQueue.push(payload);
+    });
+  }
+};
+
+// Reenvia eventos falhados (chamado no próximo metaTrack)
+window._capiFlushRetry = function () {
+  if (!window._capiRetryQueue.length) return;
+  var queue = window._capiRetryQueue.splice(0);
+  queue.forEach(function (payload) {
+    // Atualiza o timestamp para evitar rejeição por evento muito antigo
+    payload._retried = true;
+    window._capiSend(payload);
+  });
+};
+
 window.metaTrack = function (eventName, customData) {
   var eventId = (self.crypto && crypto.randomUUID)
     ? crypto.randomUUID()
@@ -1297,43 +1368,20 @@ window.metaTrack = function (eventName, customData) {
 
   // 2) API de Conversões (servidor) — mesmo event_id
   try {
-    var getCookie = function (n) {
-      var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]+)'));
-      return m ? decodeURIComponent(m[1]) : undefined;
+    // Primeiro, tenta reenviar eventos falhados anteriores
+    window._capiFlushRetry();
+
+    var payload = {
+      event_name: eventName,
+      event_id: eventId,
+      event_source_url: location.href,
+      custom_data: customData || {},
+      fbp: window._capiGetCookie('_fbp'),
+      fbc: window._capiGetFbc(),
+      external_id: window._capiGetEid()
     };
 
-    // ID anónimo persistente (melhora a atribuição sem dados pessoais)
-    var eid;
-    try {
-      eid = localStorage.getItem('mw_eid');
-      if (!eid) {
-        eid = (self.crypto && crypto.randomUUID) ? crypto.randomUUID()
-            : 'eid_' + Date.now() + '_' + Math.random().toString(16).slice(2);
-        localStorage.setItem('mw_eid', eid);
-      }
-    } catch (e2) { /* localStorage indisponível */ }
-
-    // fbc: se o cookie _fbc não existir mas o URL tiver fbclid (veio de anúncio), constrói-o
-    var fbc = getCookie('_fbc');
-    if (!fbc) {
-      var fbclid = new URLSearchParams(location.search).get('fbclid');
-      if (fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
-    }
-
-    fetch('/api/capi', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      keepalive: true,
-      body: JSON.stringify({
-        event_name: eventName,
-        event_id: eventId,
-        event_source_url: location.href,
-        custom_data: customData || {},
-        fbp: getCookie('_fbp'),
-        fbc: fbc,
-        external_id: eid
-      })
-    }).catch(function () { /* falha silenciosa: o Pixel já cobre */ });
+    window._capiSend(payload);
   } catch (e) { /* ignora */ }
 };
 
