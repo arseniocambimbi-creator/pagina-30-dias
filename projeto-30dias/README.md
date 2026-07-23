@@ -102,7 +102,7 @@ Valores:
 WA_TOKEN        = EAAxxxxxxxxxxxxxxxx (token Meta)
 WA_PHONE_ID     = 1234567890123456 (ID do número)
 WA_VERIFY_TOKEN = angola30dias2026 (defines tu)
-ACCESS_LINK     = https://pay.kursinha.com/c/6a2336a0d0cbc8fc6e870bb2
+ACCESS_LINK     = https://kiki.ao/6epe2gem
 ```
 
 ### 3.4 Registar o Webhook no Meta

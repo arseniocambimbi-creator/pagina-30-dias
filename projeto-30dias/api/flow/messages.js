@@ -8,7 +8,7 @@
 
 const AGENT = process.env.AGENT_NAME || 'equipa do Método 30 Dias';
 
-const ACCESS_LINK   = process.env.ACCESS_LINK    || 'https://pay.kursinha.com/c/6a2336a0d0cbc8fc6e870bb2';
+const ACCESS_LINK   = process.env.ACCESS_LINK    || 'https://kiki.ao/6epe2gem';
 const LINK_PLANILHA = process.env.LINK_PLANILHA  || ACCESS_LINK;
 const LINK_KIXIKILA = process.env.LINK_KIXIKILA  || ACCESS_LINK;
 const LINK_FRASES   = process.env.LINK_FRASES    || ACCESS_LINK;

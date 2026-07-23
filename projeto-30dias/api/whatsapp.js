@@ -20,7 +20,7 @@ const ZAPI_INSTANCE_ID  = process.env.ZAPI_INSTANCE_ID;
 const ZAPI_TOKEN        = process.env.ZAPI_TOKEN;
 const ZAPI_CLIENT_TOKEN = process.env.ZAPI_CLIENT_TOKEN || '';
 const WA_VERIFY_TOKEN   = process.env.WA_VERIFY_TOKEN;
-const ACCESS_LINK       = process.env.ACCESS_LINK || 'https://pay.kursinha.com/c/6a2336a0d0cbc8fc6e870bb2';
+const ACCESS_LINK       = process.env.ACCESS_LINK || 'https://kiki.ao/6epe2gem';
 
 // ── MENSAGEM ENVIADA AO COMPRADOR ────────────────────────────────
 function buildMessage(name) {
